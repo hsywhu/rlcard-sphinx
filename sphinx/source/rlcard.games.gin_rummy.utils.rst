@@ -8,6 +8,14 @@ rlcard.games.gin_rummy.utils.action_event
     :members:
     :undoc-members:
     :show-inheritance:
+
+rlcard.games.gin_rummy.utils.gin_rummy_error
+---------------------------------------------
+
+.. automodule:: rlcard.games.gin_rummy.utils.gin_rummy_error
+    :members:
+    :undoc-members:
+    :show-inheritance:
     
 rlcard.games.gin_rummy.utils.melding
 -----------------------------------------
@@ -37,6 +45,14 @@ rlcard.games.gin_rummy.utils.settings
 -----------------------------------------
 
 .. automodule:: rlcard.games.gin_rummy.utils.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rlcard.games.gin_rummy.utils.thinker
+-----------------------------------------
+
+.. automodule:: rlcard.games.gin_rummy.utils.thinker
     :members:
     :undoc-members:
     :show-inheritance:

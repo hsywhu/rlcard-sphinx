@@ -1,6 +1,14 @@
 rlcard.agents
 ===================
 
+rlcard.agents.gin_rummy_human_agent
+------------------------------------
+
+.. automodule:: rlcard.agents.gin_rummy_human_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 rlcard.agents.best_response_agent
 ---------------------------------
 

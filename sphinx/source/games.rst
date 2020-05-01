@@ -60,23 +60,23 @@ hold'em.
 State Representation of Leduc Hold'em
 -------------------------------------
 
-The state is encoded as a vector of length 34. The first 3 elements
+The state is encoded as a vector of length 36. The first 3 elements
 correspond to hand card. The next 3 elements correspond to public card.
-The last 28 elements correspond the chips of the current player and the
-opponent (the chips could be in range 0~13) The correspondence between
+The last 30 elements correspond the chips of the current player and the
+opponent (the chips could be in range 0~14) The correspondence between
 the index and the card is as below.
 
-+---------+---------------------------------------+
-| Index   | Meaning                               |
-+=========+=======================================+
-| 0~2     | J ~ K in hand                         |
-+---------+---------------------------------------+
-| 3~5     | J ~ K as public card                  |
-+---------+---------------------------------------+
-| 6~19    | 0 ~ 13 chips for the current player   |
-+---------+---------------------------------------+
-| 20~33   | 0 ~ 13 chips for the opponent         |
-+---------+---------------------------------------+
++-------+-------------------------------------+
+| Index | Meaning                             |
++=======+=====================================+
+| 0~2   | J ~ K in hand                       |
++-------+-------------------------------------+
+| 3~5   | J ~ K as public card                |
++-------+-------------------------------------+
+| 6~20  | 0 ~ 14 chips for the current player |
++-------+-------------------------------------+
+| 21~35 | 0 ~ 14 chips for the opponent       |
++-------+-------------------------------------+
 
 Action Encoding of Leduc Hold'em
 --------------------------------
@@ -86,10 +86,7 @@ The action encoding is the same as Limit Hold'em game.
 Payoff of Leduc Hold'em
 -----------------------
 
-The payoff is calculated similarly with Limit Hold'em game. The only
-difference is that Leduc Hold'em does not has the 'big blind' concept.
-As both players start the first round with 1 unit in the pot, we treat
-the 'big blind' in calculation as 1 by default.
+The payoff is calculated similarly with Limit Hold'em game.
 
 Limit Texas Hold'em
 ~~~~~~~~~~~~~~~~~~~
@@ -306,8 +303,71 @@ ID is in
 Payoff
 ------
 
-Each player will receive a reward 0 (lose) or 1 (win) in the end of the
-game.
+If the landlord first get rid of all the cards in his hand, he will win
+and receive a reward 1. The two peasants will lose and receive a reward
+0. Similarly, if one of the peasant first get rid of all the cards in
+hand, both peasants will win and receive a reward 1. The landlord will
+lose and receive a reward 0.
+
+Simple Dou Dizhu
+~~~~~~~~~~~~~~~~
+
+Simple Dou Dizhu is a smaller version of Dou Dizhu. The deck only
+consists of 6 ranks from '8' to 'A' (8, 9, T, J, Q, K, A), there are
+four cards with different suits in each rank. What's more, unlike
+landlord in Dou Dizhu, the landlord in Simple Dou Dizhu only has one
+more card than the peasants. The rules of this game is the same as the
+rules of Dou Dizhu. Just because each player gets fewer cards, they end
+the game faster.
+
+State Representation of Simple Dou Dizhu
+----------------------------------------
+
+This is almost the smae as the state representation of Dou Dizhu, but
+the number of the 'deck' has reduced from 54 to 28, and the number of
+the 'seen cards' reduced from 3 to 1. The following table shows the
+structure of the state:
+
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| Key             | Description                                                                                                                                           | Example value                                                                                       |
++=================+=======================================================================================================================================================+=====================================================================================================+
+| deck            | A string of one pack of 28 cards without Black Joker and Red Joker. Each character means a card. For conciseness, we use 'T' for '10'.                | 88889999TTTTJJJJQQQQKKKKAAAA                                                                        |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| seen\_cards     | One face-down card distributed to the landlord after bidding. Then the card will be made public to all players.                                       | K                                                                                                   |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| landlord        | An integer of landlord's id                                                                                                                           | 0                                                                                                   |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| self            | An integer of current player's id                                                                                                                     | 1                                                                                                   |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| initial\_hand   | All cards current player initially owned when a game starts. It will not change with playing cards.                                                   | 8TTJJQQKA                                                                                           |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| trace           | A list of tuples which records every actions in one game. The first entry of the tuple is player's id, the second is corresponding player's action.   | [(0, '8'), (1, 'A'), (2, 'pass'), (0, 'pass')]                                                      |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| played\_cards   | As the game progresses, the cards which have been played by the three players and sorted from low to high.                                            | ['8', 'A']                                                                                          |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| others\_hand    | The union of the other two player's current hand                                                                                                      | 889999TTJJQQKKKAAA                                                                                  |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| current\_hand   | The current hand of current player                                                                                                                    | 8TTJJQQK                                                                                            |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| actions         | The legal actions the current player could do                                                                                                         | ['J', 'TTJJQQ', 'TT', 'Q', 'T', 'K', 'QQ', '8', 'JJ']                                               |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+
+State Encoding of Simple Dou Dizhu
+----------------------------------
+
+The state encoding is the same as Dou Dizhu game.
+
+Action Encoding of Simple Dou Dizhu
+-----------------------------------
+
+The action encoding is the same as Dou Dizhu game. Because of the
+reduction of deck, the actions encoded have also reduced from 309 to
+131.
+
+Payoff of Simple Dou Dizhu
+--------------------------
+
+The payoff is the same as Dou Dizhu game.
 
 Mahjong
 ~~~~~~~
@@ -424,24 +484,29 @@ below:
 Action Encoding of No-Limit Texas Hold'em
 -----------------------------------------
 
-There are 103 actions in No-limit Texas Hold'em. They are encoded as
+There are 6 actions in No-limit Texas Hold'em. They are encoded as
 below.
 
 \*Note: Starting from Action ID 3, the action means the amount player
-should put in the pot when chooses 'Raise'. The action ID from 3 to 102
-corresponds to the bet amount from 1 to 100.
+should put in the pot when chooses ‘Raise’. The action ID from 3 to 5
+corresponds to the bet amount from half amount of the pot, full amount
+of the pot to all in.
 
-+-----------+---------+
-| Action ID | Action  |
-+===========+=========+
-| 0         | Call    |
-+-----------+---------+
-| 1         | Fold    |
-+-----------+---------+
-| 2         | Check   |
-+-----------+---------+
-| 3 ~ 102   | \*Raise |
-+-----------+---------+
++-----------+----------------+
+| Action ID | Action         |
++===========+================+
+| 0         | Fold           |
++-----------+----------------+
+| 1         | Check          |
++-----------+----------------+
+| 2         | Call           |
++-----------+----------------+
+| 3         | Raise Half Pot |
++-----------+----------------+
+| 4         | Raise Full Pot |
++-----------+----------------+
+| 5         | All In         |
++-----------+----------------+
 
 Payoff of No-Limit Texas Hold'em
 --------------------------------
@@ -658,10 +723,11 @@ Payoff of Gin Rummy
 The reward is calculated by the terminal state of the game. Note that
 the reward is different from that of the standard game. A player who
 gins is awarded 1 point. A player who knocks is awarded 0.2 points. The
-losing player is punished by the negative of their deadwood count.
+losing player is punished by the negative of their deadwood count
+divided by 100.
 
 If the hand is declared dead, both players are punished by the negative
-of their deadwood count.
+of their deadwood count divided by 100.
 
 Settings
 --------
