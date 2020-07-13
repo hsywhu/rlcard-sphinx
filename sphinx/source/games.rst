@@ -243,12 +243,12 @@ encoded planes are as below:
 Action Abstraction of Dou Dizhu
 -------------------------------
 
-The size of the action space of Dou Dizhu is 33676. This number is too
+The size of the action space of Dou Dizhu is 27472. This number is too
 large for learning algorithms. Thus, we make abstractions to the
 original action space and obtain 309 actions. We note that some recent
 studies also use similar abstraction techniques. The main idea of the
 abstraction is to make the kicker fuzzy and only focus on the major part
-of the combination. For example, "33345" is abstracted as "333 \*\*".
+of the combination. For example, "33344" is abstracted as "333 \*\*".
 When the predicted action of the agent is **not legal**, the agent will
 choose "**pass**.". Thus, the current environment is simple, since once
 the agent learns how to play legal actions, it can beat random agents.
@@ -283,13 +283,13 @@ ID is in
 +-----------------+-----------------+-----------------+-----------------+
 | Chain of trio   | 45              | 45              | 155-199         |
 +-----------------+-----------------+-----------------+-----------------+
-| Plane with solo | 24721           | 38              | 200-237         |
+| Plane with solo | 21822           | 38              | 200-237         |
 +-----------------+-----------------+-----------------+-----------------+
-| Plane with pair | 6552            | 30              | 238-267         |
+| Plane with pair | 2939            | 30              | 238-267         |
 +-----------------+-----------------+-----------------+-----------------+
-| Quad with solo  | 1339            | 13              | 268-280         |
+| Quad with solo  | 1326            | 13              | 268-280         |
 +-----------------+-----------------+-----------------+-----------------+
-| Quad with pair  | 1014            | 13              | 281-293         |
+| Quad with pair  | 858             | 13              | 281-293         |
 +-----------------+-----------------+-----------------+-----------------+
 | Bomb            | 13              | 13              | 294-306         |
 +-----------------+-----------------+-----------------+-----------------+
@@ -297,7 +297,7 @@ ID is in
 +-----------------+-----------------+-----------------+-----------------+
 | Pass            | 1               | 1               | 308             |
 +-----------------+-----------------+-----------------+-----------------+
-| Total           | 33676           | 309             |                 |
+| Total           | 27472           | 309             |                 |
 +-----------------+-----------------+-----------------+-----------------+
 
 Payoff
