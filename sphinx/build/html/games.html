@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games in RLCard &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Algorithms" href="algorithms.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Games in RLCard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#blackjack">Blackjack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-blackjack">State Representation of Blackjack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding-of-blackjack">Action Encoding of Blackjack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-blackjack">Payoff of Blackjack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#leduc-hold-em">Leduc Hold’em</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-leduc-hold-em">State Representation of Leduc Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding-of-leduc-hold-em">Action Encoding of Leduc Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-leduc-hold-em">Payoff of Leduc Hold’em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#limit-texas-hold-em">Limit Texas Hold’em</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-limit-texas-hold-em">State Representation of Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding-of-limit-texas-hold-em">Action Encoding of Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-limit-texas-hold-em">Payoff of Limit Texas Hold’em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dou-dizhu">Dou Dizhu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-dou-dizhu">State Representation of Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-encoding-of-dou-dizhu">State Encoding of Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-abstraction-of-dou-dizhu">Action Abstraction of Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff">Payoff</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-dou-dizhu">Simple Dou Dizhu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-simple-dou-dizhu">State Representation of Simple Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-encoding-of-simple-dou-dizhu">State Encoding of Simple Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding-of-simple-dou-dizhu">Action Encoding of Simple Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-simple-dou-dizhu">Payoff of Simple Dou Dizhu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mahjong">Mahjong</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-mahjong">State Representation of Mahjong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-space-of-mahjong">Action Space of Mahjong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-mahjong">Payoff of Mahjong</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#no-limit-texas-hold-em">No-limit Texas Hold’em</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-no-limit-texas-hold-em">State Representation of No-Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding-of-no-limit-texas-hold-em">Action Encoding of No-Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-no-limit-texas-hold-em">Payoff of No-Limit Texas Hold’em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uno">UNO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-uno">State Representation of Uno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-encoding-of-uno">State Encoding of Uno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding-of-uno">Action Encoding of Uno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-uno">Payoff of Uno</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gin-rummy">Gin Rummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-gin-rummy">State Representation of Gin Rummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-space-of-gin-rummy">Action Space of Gin Rummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-gin-rummy">Payoff of Gin Rummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variations">Variations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bridge">Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation-of-bridge">State Representation of Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-space-of-bridge">Action Space of Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payoff-of-bridge">Payoff of Bridge</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="games-in-rlcard">
+<h1>Games in RLCard<a class="headerlink" href="#games-in-rlcard" title="Permalink to this heading">¶</a></h1>
+<section id="blackjack">
+<h2>Blackjack<a class="headerlink" href="#blackjack" title="Permalink to this heading">¶</a></h2>
+<p>Blackjack is a globally popular banking game known as Twenty-One. The
+objective is to beat the dealer by reaching a higher score than the
+dealer without exceeding 21. In the toolkit, we implement a simple
+version of Blackjack. In each round, the player only has two options:
+“hit” which will take a card, and ‘stand’ which end the turn. The player
+will “bust” if his hands exceed 21 points. After the player completes
+his hands (chooses “stand” and has not busted), the dealer then reals
+his hidden card and “hit” until obtaining at least 17 points.</p>
+<section id="state-representation-of-blackjack">
+<h3>State Representation of Blackjack<a class="headerlink" href="#state-representation-of-blackjack" title="Permalink to this heading">¶</a></h3>
+<p>In this toy environment, we encode the state
+as an array <code class="docutils literal notranslate"><span class="pre">[player_score,</span> <span class="pre">dealer_score]</span></code> where <code class="docutils literal notranslate"><span class="pre">player_score</span></code> is
+the score currently obtained by the player, and the <code class="docutils literal notranslate"><span class="pre">dealer_score</span></code> is
+derived from the card that faces up from the dealer.</p>
+</section>
+<section id="action-encoding-of-blackjack">
+<h3>Action Encoding of Blackjack<a class="headerlink" href="#action-encoding-of-blackjack" title="Permalink to this heading">¶</a></h3>
+<p>There are two actions in the simple Blackjack. They are
+encoded as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>hit</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>stand</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff-of-blackjack">
+<h3>Payoff of Blackjack<a class="headerlink" href="#payoff-of-blackjack" title="Permalink to this heading">¶</a></h3>
+<p>The player may receive a reward -1 (lose), 0 (tie), or 1 (win) in the
+end of the game.</p>
+</section>
+</section>
+<section id="leduc-hold-em">
+<h2>Leduc Hold’em<a class="headerlink" href="#leduc-hold-em" title="Permalink to this heading">¶</a></h2>
+<p>Leduc Hold’em is a smaller version of Limit Texas Hold’em (first
+introduced in <a class="reference external" href="http://poker.cs.ualberta.ca/publications/UAI05.pdf">Bayes’ Bluff: Opponent Modeling in
+Poker</a>). The deck
+consists only two pairs of King, Queen and Jack, six cards in total.
+Each game is fixed with two players, two rounds, two-bet maximum and
+raise amounts of 2 and 4 in the first and second round. In the first
+round, each player puts 1 unit in the pot and is dealt one card, then
+starts betting. In the second round, one public card is revealed first,
+then the players bet again. Finally, the player whose hand has the same
+rank as the public card is the winner. If neither, then the one with
+higher rank wins. Other rules such as ‘fold’ can refer to Limit Texas
+hold’em.</p>
+<section id="state-representation-of-leduc-hold-em">
+<h3>State Representation of Leduc Hold’em<a class="headerlink" href="#state-representation-of-leduc-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The state is encoded as a vector of length 36. The first 3 elements
+correspond to hand card. The next 3 elements correspond to public card.
+The last 30 elements correspond the chips of the current player and the
+opponent (the chips could be in range 0~14) The correspondence between
+the index and the card is as below.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0~2</p></td>
+<td><p>J ~ K in hand</p></td>
+</tr>
+<tr class="row-odd"><td><p>3~5</p></td>
+<td><p>J ~ K as public card</p></td>
+</tr>
+<tr class="row-even"><td><p>6~20</p></td>
+<td><p>0 ~ 14 chips for the current player</p></td>
+</tr>
+<tr class="row-odd"><td><p>21~35</p></td>
+<td><p>0 ~ 14 chips for the opponent</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-encoding-of-leduc-hold-em">
+<h3>Action Encoding of Leduc Hold’em<a class="headerlink" href="#action-encoding-of-leduc-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The action encoding is the same as Limit Hold’em game.</p>
+</section>
+<section id="payoff-of-leduc-hold-em">
+<h3>Payoff of Leduc Hold’em<a class="headerlink" href="#payoff-of-leduc-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The payoff is calculated similarly with Limit Hold’em game.</p>
+</section>
+</section>
+<section id="limit-texas-hold-em">
+<h2>Limit Texas Hold’em<a class="headerlink" href="#limit-texas-hold-em" title="Permalink to this heading">¶</a></h2>
+<p>Texas Hold’em is a popular betting game. Each player is dealt two
+face-down cards, called hole cards. Then 5 community cards are dealt in
+three stages (the flop, the turn and the river). Each player seeks the
+five best cards among the hole cards and community cards. There are 4
+betting rounds. During each round each player can choose “call”,
+“check”, “raise”, or “fold”.</p>
+<p>In fixed limit Texas Hold’em. Each player can only choose a fixed amount
+of raise. And in each round the number of raises is limited to 4.</p>
+<section id="state-representation-of-limit-texas-hold-em">
+<h3>State Representation of Limit Texas Hold’em<a class="headerlink" href="#state-representation-of-limit-texas-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The state is encoded as a vector of length 72. The first 52 elements
+represent cards, where each element corresponds to one card. The hand is
+represented as the two hole cards plus the observed community cards so
+far. The last 20 elements are the betting history. The correspondence
+between the index and the card is as below.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0~12</p></td>
+<td><p>Spade A ~ Spade K</p></td>
+</tr>
+<tr class="row-odd"><td><p>13~25</p></td>
+<td><p>Heart A ~ Heart K</p></td>
+</tr>
+<tr class="row-even"><td><p>26~38</p></td>
+<td><p>Diamond A ~ Diamond K</p></td>
+</tr>
+<tr class="row-odd"><td><p>39~51</p></td>
+<td><p>Club A ~ Club K</p></td>
+</tr>
+<tr class="row-even"><td><p>52~56</p></td>
+<td><p>Raise number in round 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>37~61</p></td>
+<td><p>Raise number in round 2</p></td>
+</tr>
+<tr class="row-even"><td><p>62~66</p></td>
+<td><p>Raise number in round 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>67~71</p></td>
+<td><p>Raise number in round 4</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-encoding-of-limit-texas-hold-em">
+<h3>Action Encoding of Limit Texas Hold’em<a class="headerlink" href="#action-encoding-of-limit-texas-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>There 4 actions in Limit Texas Hold’em. They are encoded as below.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Call</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Raise</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Fold</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Check</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff-of-limit-texas-hold-em">
+<h3>Payoff of Limit Texas Hold’em<a class="headerlink" href="#payoff-of-limit-texas-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The stardard unit used in the leterature is milli big blinds per hand
+(mbb/h). In the toolkit, the reward is calculated based on big blinds
+per hand. For example, a reward of 0.5 (-0.5) means that the player wins
+(loses) 0.5 times of the amount of big blind.</p>
+</section>
+</section>
+<section id="dou-dizhu">
+<h2>Dou Dizhu<a class="headerlink" href="#dou-dizhu" title="Permalink to this heading">¶</a></h2>
+<p>Doudizhu is one of the most popular Chinese card games with hundreds of
+millions of players. It is played by three people with one pack of 54
+cards including a red joker and a black joker. After bidding, one player
+would be the “landlord” who can get an extra three cards, and the other
+two would be “peasants” who work together to fight against the landlord.
+In each round of the game, the starting player must play a card or a
+combination, and the other two players can decide whether to follow or
+“pass.” A round is finished if two consecutive players choose “pass.”
+The player who played the cards with the highest rank will be the first
+to play in the next round. The objective of the game is to be the first
+player to get rid of all the cards in hand. For detailed rules, please
+refer to <a class="reference external" href="https://en.wikipedia.org/wiki/Dou_dizhu">Wikipedia</a> or
+<a class="reference external" href="https://baike.baidu.com/item/%E6%96%97%E5%9C%B0%E4%B8%BB/177997?fr=aladdin">Baike</a>.</p>
+<p>In the toolkit, we implement a standard version of Doudizhu. In the
+bidding phase, we heuristically designate one of the players as the
+“landlord.” Specifically, we count the number of key cards or
+combinations (high-rank cards and bombs), and the player with the most
+powerful hand is chosen as “lanlord.”</p>
+<section id="state-representation-of-dou-dizhu">
+<h3>State Representation of Dou Dizhu<a class="headerlink" href="#state-representation-of-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>At each decision point of the game, the corresponding player will be
+able to observe the current state (or information set in imperfect
+information game). The state consists of all the information that the
+player can observe from his view. We encode the information into a
+readable Python dictionary. The following table shows the structure of
+the state:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>deck</p></td>
+<td><p>A string of one pack of 54 cards with Black Joker and Red Joker. Each character means a card. For conciseness, we use ‘T’ for ‘10’.</p></td>
+<td><p>3333444455556666777788889999TTTTJJJJQQQQKKKKAAAA2222BR</p></td>
+</tr>
+<tr class="row-odd"><td><p>seen_cards</p></td>
+<td><p>Three face-down cards distributed to the landlord after bidding. Then these cards will be made public to all players.</p></td>
+<td><p>TQA</p></td>
+</tr>
+<tr class="row-even"><td><p>landlord</p></td>
+<td><p>An integer of landlord’s id</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>self</p></td>
+<td><p>An integer of current player’s id</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>initial_hand</p></td>
+<td><p>All cards current player initially owned when a game starts. It will not change with playing cards.</p></td>
+<td><p>3456677799TJQKAAB</p></td>
+</tr>
+<tr class="row-odd"><td><p>trace</p></td>
+<td><p>A list of tuples which records every actions in one game. The first entry of the tuple is player’s id, the second is corresponding player’s action.</p></td>
+<td><p>[(0, ‘8222’), (1, ‘pass’), (2, ‘pass’), (0 ‘6KKK’), (1, ‘pass’), (2, ‘pass’), (0, ‘8’), (1, ‘Q’)]</p></td>
+</tr>
+<tr class="row-even"><td><p>played_cards</p></td>
+<td><p>As the game progresses, the cards which have been played by the three players and sorted from low to high.</p></td>
+<td><p>[‘6’, ‘8’, ‘8’, ‘Q’, ‘K’, ‘K’, ‘K’, ‘2’, ‘2’, ‘2’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>others_hand</p></td>
+<td><p>The union of the other two player’s current hand</p></td>
+<td><p>333444555678899TTTJJJQQAA2R</p></td>
+</tr>
+<tr class="row-even"><td><p>current_hand</p></td>
+<td><p>The current hand of current player</p></td>
+<td><p>3456677799TJQKAAB</p></td>
+</tr>
+<tr class="row-odd"><td><p>actions</p></td>
+<td><p>The legal actions the current player could do</p></td>
+<td><p>[‘pass’, ‘K’, ‘A’, ‘B’]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="state-encoding-of-dou-dizhu">
+<h3>State Encoding of Dou Dizhu<a class="headerlink" href="#state-encoding-of-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>In Dou Dizhu environment, we encode the state into 6 feature planes. The
+size of each plane is 5*15. Each entry of a plane can be either 1 or 0.
+The 5 rows represent 0, 1, 2, 3, 4 corresonding cards, respectively. The
+15 columns start from “3” to “RJ” (Black Jack). For example, if we have
+a “3”, then the entry (1, 0) would be 1, and the rest of column 0 would
+be 0. If we have a pair of “4”, then the entry (2, 1) would be 1, and
+the rest of column 1 would be 0. Note that the current encoding method
+is just an example to show how the feature can be encoded. Users are
+encouraged to encode the state for their own purposes by modifying
+<code class="docutils literal notranslate"><span class="pre">extract_state</span></code> function in
+<code class="docutils literal notranslate"><span class="pre">rlcard/envs/doudizhu.py</span></code>. The example
+encoded planes are as below:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plane</p></th>
+<th class="head"><p>Feature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>the current hand</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>the union of the other two players’ hand</p></td>
+</tr>
+<tr class="row-even"><td><p>2-4</p></td>
+<td><p>the recent three actions</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>the union of all played cards</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-abstraction-of-dou-dizhu">
+<h3>Action Abstraction of Dou Dizhu<a class="headerlink" href="#action-abstraction-of-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>The size of the action space of Dou Dizhu is 27472. This number is too
+large for learning algorithms. Thus, we make abstractions to the
+original action space and obtain 309 actions. We note that some recent
+studies also use similar abstraction techniques. The main idea of the
+abstraction is to make the kicker fuzzy and only focus on the major part
+of the combination. For example, “33344” is abstracted as “333 **”.
+When the predicted action of the agent is <strong>not legal</strong>, the agent will
+choose “<strong>pass</strong>.”. Thus, the current environment is simple, since once
+the agent learns how to play legal actions, it can beat random agents.
+Users can also encode the actions for their own purposes (such as
+increasing the difficulty of the environment) by modifying
+<code class="docutils literal notranslate"><span class="pre">decode_action</span></code> function in
+<code class="docutils literal notranslate"><span class="pre">rlcard/envs/doudizhu.py</span></code>. Users are also
+encouraged to include rule-based agents as opponents. The abstractions
+in the environment are as below. The detailed mapping of action and its
+ID is in
+<code class="docutils literal notranslate"><span class="pre">rlcard/games/doudizhu/jsondata/action_space.json</span></code>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Number of
+Actions</p></th>
+<th class="head"><p>Number of
+Actions after
+Abstraction</p></th>
+<th class="head"><p>Action ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Solo</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>0-14</p></td>
+</tr>
+<tr class="row-odd"><td><p>pair</p></td>
+<td><p>13</p></td>
+<td><p>13</p></td>
+<td><p>15-27</p></td>
+</tr>
+<tr class="row-even"><td><p>Trio</p></td>
+<td><p>13</p></td>
+<td><p>13</p></td>
+<td><p>28-40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trio with
+single</p></td>
+<td><p>182</p></td>
+<td><p>13</p></td>
+<td><p>41-53</p></td>
+</tr>
+<tr class="row-even"><td><p>Trio with pair</p></td>
+<td><p>156</p></td>
+<td><p>13</p></td>
+<td><p>54-66</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chain of solo</p></td>
+<td><p>36</p></td>
+<td><p>36</p></td>
+<td><p>67-102</p></td>
+</tr>
+<tr class="row-even"><td><p>Chain of pair</p></td>
+<td><p>52</p></td>
+<td><p>52</p></td>
+<td><p>103-154</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chain of trio</p></td>
+<td><p>45</p></td>
+<td><p>45</p></td>
+<td><p>155-199</p></td>
+</tr>
+<tr class="row-even"><td><p>Plane with solo</p></td>
+<td><p>21822</p></td>
+<td><p>38</p></td>
+<td><p>200-237</p></td>
+</tr>
+<tr class="row-odd"><td><p>Plane with pair</p></td>
+<td><p>2939</p></td>
+<td><p>30</p></td>
+<td><p>238-267</p></td>
+</tr>
+<tr class="row-even"><td><p>Quad with solo</p></td>
+<td><p>1326</p></td>
+<td><p>13</p></td>
+<td><p>268-280</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quad with pair</p></td>
+<td><p>858</p></td>
+<td><p>13</p></td>
+<td><p>281-293</p></td>
+</tr>
+<tr class="row-even"><td><p>Bomb</p></td>
+<td><p>13</p></td>
+<td><p>13</p></td>
+<td><p>294-306</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rocket</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>307</p></td>
+</tr>
+<tr class="row-even"><td><p>Pass</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>308</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total</p></td>
+<td><p>27472</p></td>
+<td><p>309</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff">
+<h3>Payoff<a class="headerlink" href="#payoff" title="Permalink to this heading">¶</a></h3>
+<p>If the landlord first get rid of all the cards in his hand, he will win
+and receive a reward 1. The two peasants will lose and receive a reward
+0. Similarly, if one of the peasant first get rid of all the cards in
+hand, both peasants will win and receive a reward 1. The landlord will
+lose and receive a reward 0.</p>
+</section>
+</section>
+<section id="simple-dou-dizhu">
+<h2>Simple Dou Dizhu<a class="headerlink" href="#simple-dou-dizhu" title="Permalink to this heading">¶</a></h2>
+<p>Simple Dou Dizhu is a smaller version of Dou Dizhu. The deck only
+consists of 6 ranks from ‘8’ to ‘A’ (8, 9, T, J, Q, K, A), there are
+four cards with different suits in each rank. What’s more, unlike
+landlord in Dou Dizhu, the landlord in Simple Dou Dizhu only has one
+more card than the peasants. The rules of this game is the same as the
+rules of Dou Dizhu. Just because each player gets fewer cards, they end
+the game faster.</p>
+<section id="state-representation-of-simple-dou-dizhu">
+<h3>State Representation of Simple Dou Dizhu<a class="headerlink" href="#state-representation-of-simple-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>This is almost the smae as the state representation of Dou Dizhu, but
+the number of the ‘deck’ has reduced from 54 to 28, and the number of
+the ‘seen cards’ reduced from 3 to 1. The following table shows the
+structure of the state:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>deck</p></td>
+<td><p>A string of one pack of 28 cards without Black Joker and Red Joker. Each character means a card. For conciseness, we use ‘T’ for ‘10’.</p></td>
+<td><p>88889999TTTTJJJJQQQQKKKKAAAA</p></td>
+</tr>
+<tr class="row-odd"><td><p>seen_cards</p></td>
+<td><p>One face-down card distributed to the landlord after bidding. Then the card will be made public to all players.</p></td>
+<td><p>K</p></td>
+</tr>
+<tr class="row-even"><td><p>landlord</p></td>
+<td><p>An integer of landlord’s id</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>self</p></td>
+<td><p>An integer of current player’s id</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>initial_hand</p></td>
+<td><p>All cards current player initially owned when a game starts. It will not change with playing cards.</p></td>
+<td><p>8TTJJQQKA</p></td>
+</tr>
+<tr class="row-odd"><td><p>trace</p></td>
+<td><p>A list of tuples which records every actions in one game. The first entry of the tuple is player’s id, the second is corresponding player’s action.</p></td>
+<td><p>[(0, ‘8’), (1, ‘A’), (2, ‘pass’), (0, ‘pass’)]</p></td>
+</tr>
+<tr class="row-even"><td><p>played_cards</p></td>
+<td><p>As the game progresses, the cards which have been played by the three players and sorted from low to high.</p></td>
+<td><p>[‘8’, ‘A’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>others_hand</p></td>
+<td><p>The union of the other two player’s current hand</p></td>
+<td><p>889999TTJJQQKKKAAA</p></td>
+</tr>
+<tr class="row-even"><td><p>current_hand</p></td>
+<td><p>The current hand of current player</p></td>
+<td><p>8TTJJQQK</p></td>
+</tr>
+<tr class="row-odd"><td><p>actions</p></td>
+<td><p>The legal actions the current player could do</p></td>
+<td><p>[‘J’, ‘TTJJQQ’, ‘TT’, ‘Q’, ‘T’, ‘K’, ‘QQ’, ‘8’, ‘JJ’]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="state-encoding-of-simple-dou-dizhu">
+<h3>State Encoding of Simple Dou Dizhu<a class="headerlink" href="#state-encoding-of-simple-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>The state encoding is the same as Dou Dizhu game.</p>
+</section>
+<section id="action-encoding-of-simple-dou-dizhu">
+<h3>Action Encoding of Simple Dou Dizhu<a class="headerlink" href="#action-encoding-of-simple-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>The action encoding is the same as Dou Dizhu game. Because of the
+reduction of deck, the actions encoded have also reduced from 309 to
+131.</p>
+</section>
+<section id="payoff-of-simple-dou-dizhu">
+<h3>Payoff of Simple Dou Dizhu<a class="headerlink" href="#payoff-of-simple-dou-dizhu" title="Permalink to this heading">¶</a></h3>
+<p>The payoff is the same as Dou Dizhu game.</p>
+</section>
+</section>
+<section id="mahjong">
+<h2>Mahjong<a class="headerlink" href="#mahjong" title="Permalink to this heading">¶</a></h2>
+<div class="line-block">
+<div class="line">Mahjong is a tile-based game developed in China, and has spread throughout the world since 20th century. It is commonly played by 4 players. The game is played with a set of 136 tiles. In turn players draw and discard tiles until</div>
+<div class="line">The goal of the game is to complete the leagal hand using the 14th drawn tile to form 4 sets and a pair. We revised the game into a simple version that all of the winning set are equal, and player will win as long as she complete forming 4 sets and a pair. Please refer the detail on <a class="reference external" href="https://en.wikipedia.org/wiki/Mahjong">Wikipedia</a> or <a class="reference external" href="https://baike.baidu.com/item/麻将/215">Baike</a>.</div>
+</div>
+<section id="state-representation-of-mahjong">
+<h3>State Representation of Mahjong<a class="headerlink" href="#state-representation-of-mahjong" title="Permalink to this heading">¶</a></h3>
+<p>The state representation of Mahjong is encoded as 6 feature planes,
+where each plane has 34 X 4 dimensions. For each plane, the column of
+the plane indicates the number of the cards in the given cards set, and
+the row of the plane represents each kind of cards (Please refer to the
+action space table). The information that has been encoded can be
+refered as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plane</p></th>
+<th class="head"><p>Feature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>the cards in current player’s hand</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>the played cards on the table</p></td>
+</tr>
+<tr class="row-even"><td><p>2-5</p></td>
+<td><p>the public piles of each players</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-space-of-mahjong">
+<h3>Action Space of Mahjong<a class="headerlink" href="#action-space-of-mahjong" title="Permalink to this heading">¶</a></h3>
+<p>There are 38 actions in Mahjong.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0 ~ 8</p></td>
+<td><p>Bamboo-1 ~ Bamboo-9</p></td>
+</tr>
+<tr class="row-odd"><td><p>9 ~ 17</p></td>
+<td><p>Characters-1 ~ Character-9</p></td>
+</tr>
+<tr class="row-even"><td><p>18 ~ 26</p></td>
+<td><p>Dots-1 ~ Dots-9</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>Dragons-green</p></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>Dragons-red</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>Dragons-white</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>Winds-east</p></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>Winds-west</p></td>
+</tr>
+<tr class="row-even"><td><p>32</p></td>
+<td><p>Winds-north</p></td>
+</tr>
+<tr class="row-odd"><td><p>33</p></td>
+<td><p>Winds-south</p></td>
+</tr>
+<tr class="row-even"><td><p>34</p></td>
+<td><p>Pong</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>Chow</p></td>
+</tr>
+<tr class="row-even"><td><p>36</p></td>
+<td><p>Gong</p></td>
+</tr>
+<tr class="row-odd"><td><p>37</p></td>
+<td><p>Stand</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff-of-mahjong">
+<h3>Payoff of Mahjong<a class="headerlink" href="#payoff-of-mahjong" title="Permalink to this heading">¶</a></h3>
+<p>The reward is calculated by the terminal state of the game, where
+winning player is awarded as 1, losing players are punished as -1. And
+if no one win the game, then all players’ reward will be 0.</p>
+</section>
+</section>
+<section id="no-limit-texas-hold-em">
+<h2>No-limit Texas Hold’em<a class="headerlink" href="#no-limit-texas-hold-em" title="Permalink to this heading">¶</a></h2>
+<p>No-limit Texas Hold’em has similar rule with Limit Texas Hold’em. But
+unlike in Limit Texas Hold’em game in which each player can only choose
+a fixed amount of raise and the number of raises is limited. In No-limit
+Texas Hold’em, The player may raise with at least the same amount as
+previous raised amount in the same round (or the minimum raise amount
+set before the game if none has raised), and up to the player’s
+remaining stack. The number of raises is also unlimited.</p>
+<section id="state-representation-of-no-limit-texas-hold-em">
+<h3>State Representation of No-Limit Texas Hold’em<a class="headerlink" href="#state-representation-of-no-limit-texas-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The state representation is similar to Limit Hold’em game. The state is
+represented as 52 cards and 2 elements of the chips of the players as
+below:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0~12</p></td>
+<td><p>Spade A ~ Spade K</p></td>
+</tr>
+<tr class="row-odd"><td><p>13~25</p></td>
+<td><p>Heart A ~ Heart K</p></td>
+</tr>
+<tr class="row-even"><td><p>26~38</p></td>
+<td><p>Diamond A ~ Diamond K</p></td>
+</tr>
+<tr class="row-odd"><td><p>39~51</p></td>
+<td><p>Club A ~ Club K</p></td>
+</tr>
+<tr class="row-even"><td><p>52</p></td>
+<td><p>Chips of player 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>53</p></td>
+<td><p>Chips of player 2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-encoding-of-no-limit-texas-hold-em">
+<h3>Action Encoding of No-Limit Texas Hold’em<a class="headerlink" href="#action-encoding-of-no-limit-texas-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>There are 6 actions in No-limit Texas Hold’em. They are encoded as
+below.</p>
+<p>*Note: Starting from Action ID 3, the action means the amount player
+should put in the pot when chooses ‘Raise’. The action ID from 3 to 5
+corresponds to the bet amount from half amount of the pot, full amount
+of the pot to all in.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Fold</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Check</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Call</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Raise Half Pot</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Raise Full Pot</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>All In</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff-of-no-limit-texas-hold-em">
+<h3>Payoff of No-Limit Texas Hold’em<a class="headerlink" href="#payoff-of-no-limit-texas-hold-em" title="Permalink to this heading">¶</a></h3>
+<p>The reward is calculated based on big blinds per hand. For example, a
+reward of 0.5 (-0.5) means that the player wins (loses) 0.5 times of the
+amount of big blind.</p>
+</section>
+</section>
+<section id="uno">
+<h2>UNO<a class="headerlink" href="#uno" title="Permalink to this heading">¶</a></h2>
+<p>Uno is an American shedding-type card game that is played with a
+specially deck.The game is for 2-10 players. Every player starts with
+seven cards, and they are dealt face down. The rest of the cards are
+placed in a Draw Pile face down. Next to the pile a space should be
+designated for a Discard Pile. The top card should be placed in the
+Discard Pile, and the game begins. The first player is normally the
+player to the left of the dealer and gameplay usually follows a
+clockwise direction. Every player views his/her cards and tries to match
+the card in the Discard pile. Players have to match either by the
+number, color, or the symbol/action. If the player has no matches, they
+must draw a card. If that card can be played, play it. Otherwise, keep
+the card. The objective of the game is to be the first player to get rid
+of all the cards in hand. For detailed rules, please refer to
+<a class="reference external" href="https://en.wikipedia.org/wiki/Uno_(card_game)">Wikipedia</a> or <a class="reference external" href="https://www.unorules.com/">Uno
+Rules</a>. And in our toolkit, the number of
+players is 2.</p>
+<section id="state-representation-of-uno">
+<h3>State Representation of Uno<a class="headerlink" href="#state-representation-of-uno" title="Permalink to this heading">¶</a></h3>
+<p>In state representation, each card is represented as a string of color
+and trait(number, symbol/action). ‘r’, ‘b’, ‘y’, ‘g’ represent red,
+blue, yellow and green respectively. And at each decision point of the
+game, the corresponding player will be able to observe the current state
+(or information set in imperfect information game). The state consists
+of all the information that the player can observe from his view. We
+encode the information into a readable Python dictionary. The following
+table shows the structure of the state:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>hand</p></td>
+<td><p>A list of the player’s current
+hand.</p></td>
+<td><p>[‘g-wild’, ‘b-0’, ‘g-draw_2’,
+‘y-skip’, ‘r-draw_2’, ‘y-3’,
+‘y-wild’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>target</p></td>
+<td><p>The top card in the Discard
+pile</p></td>
+<td><p>‘g-wild’</p></td>
+</tr>
+<tr class="row-even"><td><p>played_cards</p></td>
+<td><p>As the game progresses, the
+cards which have been played
+by the players</p></td>
+<td><p>[‘g-3’, ‘g-wild’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>others_hand</p></td>
+<td><p>The union of the other
+player’s current hand</p></td>
+<td><p>[‘b-0’, ‘g-draw_2’, ‘y-skip’,
+‘r-draw_2’, ‘y-3’, ‘r-wild’]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="state-encoding-of-uno">
+<h3>State Encoding of Uno<a class="headerlink" href="#state-encoding-of-uno" title="Permalink to this heading">¶</a></h3>
+<p>In Uno environment, we encode the state into 7 feature planes. The size
+of each plane is 4*15. Row number 4 means four colors. Column number 15
+means 10 number cards from 0 to 9 and 5 special cards—“Wild”, “Wild Draw
+Four”, “Skip”, “Draw Two”, and “Reverse”. Each entry of a plane can be
+either 1 or 0. Note that the current encoding method is just an example
+to show how the feature can be encoded. Users are encouraged to encode
+the state for their own purposes by modifying <code class="docutils literal notranslate"><span class="pre">extract_state</span></code> function
+in <code class="docutils literal notranslate"><span class="pre">rlcard/envs/uno.py</span></code>. The example encoded
+planes are as below:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plane</p></th>
+<th class="head"><p>Feature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0-2</p></td>
+<td><p>hand</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>target</p></td>
+</tr>
+<tr class="row-even"><td><p>4-6</p></td>
+<td><p>others’ hand</p></td>
+</tr>
+</tbody>
+</table>
+<p>We use 3 planes to represnt players’ hand. Specifically, planes 0-2
+represent 0 card, 1 card, 2 cards, respectively. Planes 4-6 are the
+same.</p>
+</section>
+<section id="action-encoding-of-uno">
+<h3>Action Encoding of Uno<a class="headerlink" href="#action-encoding-of-uno" title="Permalink to this heading">¶</a></h3>
+<p>There are 61 actions in Uno. They are encoded as below. The detailed
+mapping of action and its ID is in
+<code class="docutils literal notranslate"><span class="pre">rlcard/games/uno/jsondata/action_space.json</span></code>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0~9</p></td>
+<td><p>Red number cards from 0 to 9</p></td>
+</tr>
+<tr class="row-odd"><td><p>10~12</p></td>
+<td><p>Red action cards: skip, reverse, draw 2</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Red wild card</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Red wild and draw 4 card</p></td>
+</tr>
+<tr class="row-even"><td><p>15~24</p></td>
+<td><p>green number cards from 0 to 9</p></td>
+</tr>
+<tr class="row-odd"><td><p>25~27</p></td>
+<td><p>green action cards: skip, reverse, draw 2</p></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>green wild card</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>green wild and draw 4 card</p></td>
+</tr>
+<tr class="row-even"><td><p>30~39</p></td>
+<td><p>blue number cards from 0 to 9</p></td>
+</tr>
+<tr class="row-odd"><td><p>40~42</p></td>
+<td><p>blue action cards: skip, reverse, draw 2</p></td>
+</tr>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>blue wild card</p></td>
+</tr>
+<tr class="row-odd"><td><p>44</p></td>
+<td><p>blue wild and draw 4 card</p></td>
+</tr>
+<tr class="row-even"><td><p>45~54</p></td>
+<td><p>yellow number cards from 0 to 9</p></td>
+</tr>
+<tr class="row-odd"><td><p>55~57</p></td>
+<td><p>yellow action cards: skip, reverse, draw 2</p></td>
+</tr>
+<tr class="row-even"><td><p>58</p></td>
+<td><p>yellow wild card</p></td>
+</tr>
+<tr class="row-odd"><td><p>59</p></td>
+<td><p>yellow wild and draw 4 card</p></td>
+</tr>
+<tr class="row-even"><td><p>60</p></td>
+<td><p>draw</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff-of-uno">
+<h3>Payoff of Uno<a class="headerlink" href="#payoff-of-uno" title="Permalink to this heading">¶</a></h3>
+<p>Each player will receive a reward -1 (lose) or 1 (win) in the end of the
+game.</p>
+</section>
+</section>
+<section id="gin-rummy">
+<h2>Gin Rummy<a class="headerlink" href="#gin-rummy" title="Permalink to this heading">¶</a></h2>
+<p>Gin Rummy is a popular two person card game using a regular 52 card deck
+(ace being low). The dealer deals 11 cards to his opponent and 10 cards
+to himself. Each player tries to form melds of 3+ cards of the same rank
+or 3+ cards of the same suit in sequence. If the deadwood count of the
+non-melded cards is 10 or less, the player can knock. If all cards can
+be melded, the player can gin. Please refer the detail on
+<a class="reference external" href="https://en.wikipedia.org/wiki/Gin_rummy">Wikipedia</a>.</p>
+<p>If a player knocks or gins, the hand ends, each player put down their
+melds, and their scores are determined. If a player knocks, the opponent
+can layoff some of his deadwood cards if they extend melds of the
+knocker. The score is the difference between the two deadwood counts of
+the players. If the score is positive, the player going out receives it.
+Otherwise, if the score is zero or negative, the opponent has undercut
+the player going out and receives the value of the score plus a 25 point
+undercut bonus.</p>
+<p>The non-dealer discards first (or knocks or gins if he can). If the
+player has not knocked or ginned, the next player can pick up the
+discard or draw a card from the face down stockpile. He can knock or gin
+and the hand ends. Otherwise, he must discard and the next player
+continues in the same fashion. If the stockpile is reduced to two cards
+only, then the hand is declared dead and no points are scored.</p>
+<section id="state-representation-of-gin-rummy">
+<h3>State Representation of Gin Rummy<a class="headerlink" href="#state-representation-of-gin-rummy" title="Permalink to this heading">¶</a></h3>
+<p>The state representation of Gin Rummy is encoded as 5 feature planes,
+where each plane is of dimension 52. For each plane, the column of the
+plane indicates the presence of the card (ordered from AS to KC). The
+information that has been encoded can be referred as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plane</p></th>
+<th class="head"><p>Feature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>the cards in current player’s hand</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>the top card of the discard pile</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>the dead cards: cards in discard pile (excluding the top card)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>opponent known cards: cards picked up from discard pile, but not discarded</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>the unknown cards: cards in stockpile or in opponent hand (but not known)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-space-of-gin-rummy">
+<h3>Action Space of Gin Rummy<a class="headerlink" href="#action-space-of-gin-rummy" title="Permalink to this heading">¶</a></h3>
+<p>There are 110 actions in Gin Rummy.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>score_player_0_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>score_player_1_action</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>draw_card_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>pick_up_discard_action</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>declare_dead_hand_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>gin_action</p></td>
+</tr>
+<tr class="row-even"><td><p>6 - 57</p></td>
+<td><p>discard_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>58 - 109</p></td>
+<td><p>knock_action</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payoff-of-gin-rummy">
+<h3>Payoff of Gin Rummy<a class="headerlink" href="#payoff-of-gin-rummy" title="Permalink to this heading">¶</a></h3>
+<p>The reward is calculated by the terminal state of the game. Note that
+the reward is different from that of the standard game. A player who
+gins is awarded 1 point. A player who knocks is awarded 0.2 points. The
+losing player is punished by the negative of their deadwood count
+divided by 100.</p>
+<p>If the hand is declared dead, both players are punished by the negative
+of their deadwood count divided by 100.</p>
+</section>
+<section id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this heading">¶</a></h3>
+<p>The following options can be set.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dealer_for_round</p></td>
+<td><p>DealerForRound.Random</p></td>
+</tr>
+<tr class="row-odd"><td><p>stockpile_dead_card_count</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>going_out_deadwood_count</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_drawn_card_count</p></td>
+<td><p>52</p></td>
+</tr>
+<tr class="row-even"><td><p>is_allowed_knock</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_allowed_gin</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>is_allowed_pick_up_discard</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_allowed_to_discard_picked_up_card</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>is_always_knock</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_south_never_knocks</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variations">
+<h3>Variations<a class="headerlink" href="#variations" title="Permalink to this heading">¶</a></h3>
+<p>One can create variations that are easier to train by changing the
+options and specifying different scoring methods.</p>
+</section>
+</section>
+<section id="bridge">
+<h2>Bridge<a class="headerlink" href="#bridge" title="Permalink to this heading">¶</a></h2>
+<p>Bridge is a popular four-person card game using a regular 52 card deck (ace being high). The North and South players are partners against the partnership of the East and West players. The dealer deals 13 cards to all four players. There is a round of bidding to determine the contract for the amount of tricks to win by the declarer with a specified trump suit (or no trump). After the bidding concludes, 13 tricks are played to see if the contract is made. During the trick playing, the dummy (the partner of the declarer) exposes his hand for all to see. The declarer plays the cards from the dummy hand.</p>
+<p>Please refer to the details on <a class="reference external" href="https://en.wikipedia.org/wiki/Contract_bridge">Wikipedia</a>.</p>
+<p>I prefer the Chicago variation rather than Rubber Bridge. Please refer to the details on <a class="reference external" href="https://www.pagat.com/auctionwhist/bridge.html">Pagat site</a>.</p>
+<section id="state-representation-of-bridge">
+<h3>State Representation of Bridge<a class="headerlink" href="#state-representation-of-bridge" title="Permalink to this heading">¶</a></h3>
+<p>The state representation of Bridge is encoded as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>hands_rep</p></td>
+<td><p>4 *
+52</p></td>
+<td><p>1 if rep_index is card_id in hand and visible else 0
+(for held card of player_id)</p></td>
+</tr>
+<tr class="row-odd"><td><p>trick_rep</p></td>
+<td><p>4 *
+52</p></td>
+<td><p>1 if rep_index is card_id in trick_pile else 0 (for
+trick card of player_id)</p></td>
+</tr>
+<tr class="row-even"><td><p>hidden_car
+ds_rep</p></td>
+<td><p>52</p></td>
+<td><p>1 if rep_index is card_id of hidden card else 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>vul_rep</p></td>
+<td><p>4</p></td>
+<td><p>1 if rep_index is player_id of vulnerable player else
+0</p></td>
+</tr>
+<tr class="row-even"><td><p>dealer_rep</p></td>
+<td><p>4</p></td>
+<td><p>1 if rep_index is dealer_id else 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>current_pl
+ayer_rep</p></td>
+<td><p>4</p></td>
+<td><p>1 if rep_index is current_player_id else 0</p></td>
+</tr>
+<tr class="row-even"><td><p>is_bidding
+_rep</p></td>
+<td><p>1</p></td>
+<td><p>1 if bidding else 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>bidding_re
+p</p></td>
+<td><p>40</p></td>
+<td><p>list of action_id of call actions in order (up to a max
+of 40)</p></td>
+</tr>
+<tr class="row-even"><td><p>last_bid_
+rep</p></td>
+<td><p>39</p></td>
+<td><p>1 if rep_index is index of last call action else 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>bid_amount
+_rep</p></td>
+<td><p>8</p></td>
+<td><p>1 if rep_index is bid_amount else 0</p></td>
+</tr>
+<tr class="row-even"><td><p>trump_suit
+_rep</p></td>
+<td><p>5</p></td>
+<td><p>1 if rep_index is trump_suit_id else 0 (NT has id of
+4)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples: * vul_rep = [0 1 0 1] means E-W are vulnerable. * dealer_rep = [0 0 0 1] means West is the dealer and bids first. * current_player_rep = [0 0 1 0] means South is the current player. * is_bidding_rep = [1] means the current player must make a call (bidding phase). * bidding_rep = [0 0 0 36 13 36 34 0 0 0 …] means West pass, North bids 3H, East pass, South bids 7S. * last_bid_rep = [0 0 0 1 0 0 0 …] means the last bid is 1H. * bid_amount_rep = [0 0 0 0 1 0 0 0] means the bid amount is 4. * trump_suit_rep = [0 0 0 1 0] means the trump suit is Spades.</p>
+</section>
+<section id="action-space-of-bridge">
+<h3>Action Space of Bridge<a class="headerlink" href="#action-space-of-bridge" title="Permalink to this heading">¶</a></h3>
+<p>There are 91 actions in Bridge.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action ID</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>no_bid_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 - 35</p></td>
+<td><p>bid_action (bid amount by suit or NT)</p></td>
+</tr>
+<tr class="row-even"><td><p>36</p></td>
+<td><p>pass_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>37</p></td>
+<td><p>dbl_action</p></td>
+</tr>
+<tr class="row-even"><td><p>38</p></td>
+<td><p>rdbl_action</p></td>
+</tr>
+<tr class="row-odd"><td><p>39 - 90</p></td>
+<td><p>play_card_action (card_id + 39)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: The no_bid_action is never presented as an option to a player. It is used to allow the bidding_rep to always have North as the first bidder (where no_bid_actions are taken until the dealer is reached, who then makes the first real call).</p>
+</section>
+<section id="payoff-of-bridge">
+<h3>Payoff of Bridge<a class="headerlink" href="#payoff-of-bridge" title="Permalink to this heading">¶</a></h3>
+<p>The payoff is calculated by the terminal state of the game. Note that the payoff is different from that of the standard game.</p>
+<p>The payoff for the defender side is the number of tricks taken by the defender side.</p>
+<p>The payoff for the declarer side depends upon whether the bid amount of the contract is made or not. If the contract is made (ignoring over tricks), the payoff for the declarer side is the bid amount + 6 + a bonus for making the contract (defaults to 2). If the contract is set, the payoff for the declarer side is the number of under tricks by the declarer side.</p>
+<p>This payoff for the defender side encourages them to make as many tricks as possible. Thus, the declarer side will be more likely to be set.</p>
+<p>This payoff for the declarer side encourages them to bid as high as possible and to choose the best trump suit or to pass when they have poor hands.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="algorithms.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

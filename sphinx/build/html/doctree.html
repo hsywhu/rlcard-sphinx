@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indices and tables &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#design-principles">Design Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#rlcard-high-level-design">RLCard High-level Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#environments">Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#games">Games</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#agents">Agents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#playing-with-random-agents">Playing with Random Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#deep-q-learning-on-blackjack">Deep-Q Learning on Blackjack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#training-cfr-chance-sampling-on-leduc-hold-em">Training CFR (chance sampling) on Leduc Hold’em</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#having-fun-with-pretrained-leduc-model">Having Fun with Pretrained Leduc Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#training-dmc-on-dou-dizhu">Training DMC on Dou Dizhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#evaluating-agents">Evaluating Agents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#evaluating-dmc-on-dou-dizhu">Evaluating DMC on Dou Dizhu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="games.html#blackjack">Blackjack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-blackjack">State Representation of Blackjack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-encoding-of-blackjack">Action Encoding of Blackjack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-blackjack">Payoff of Blackjack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#leduc-hold-em">Leduc Hold’em</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-leduc-hold-em">State Representation of Leduc Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-encoding-of-leduc-hold-em">Action Encoding of Leduc Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-leduc-hold-em">Payoff of Leduc Hold’em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#limit-texas-hold-em">Limit Texas Hold’em</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-limit-texas-hold-em">State Representation of Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-encoding-of-limit-texas-hold-em">Action Encoding of Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-limit-texas-hold-em">Payoff of Limit Texas Hold’em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#dou-dizhu">Dou Dizhu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-dou-dizhu">State Representation of Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-encoding-of-dou-dizhu">State Encoding of Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-abstraction-of-dou-dizhu">Action Abstraction of Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff">Payoff</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#simple-dou-dizhu">Simple Dou Dizhu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-simple-dou-dizhu">State Representation of Simple Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-encoding-of-simple-dou-dizhu">State Encoding of Simple Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-encoding-of-simple-dou-dizhu">Action Encoding of Simple Dou Dizhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-simple-dou-dizhu">Payoff of Simple Dou Dizhu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#mahjong">Mahjong</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-mahjong">State Representation of Mahjong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-space-of-mahjong">Action Space of Mahjong</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-mahjong">Payoff of Mahjong</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#no-limit-texas-hold-em">No-limit Texas Hold’em</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-no-limit-texas-hold-em">State Representation of No-Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-encoding-of-no-limit-texas-hold-em">Action Encoding of No-Limit Texas Hold’em</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-no-limit-texas-hold-em">Payoff of No-Limit Texas Hold’em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#uno">UNO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-uno">State Representation of Uno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-encoding-of-uno">State Encoding of Uno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-encoding-of-uno">Action Encoding of Uno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-uno">Payoff of Uno</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#gin-rummy">Gin Rummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-gin-rummy">State Representation of Gin Rummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-space-of-gin-rummy">Action Space of Gin Rummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-gin-rummy">Payoff of Gin Rummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#settings">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#variations">Variations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#bridge">Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="games.html#state-representation-of-bridge">State Representation of Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#action-space-of-bridge">Action Space of Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="games.html#payoff-of-bridge">Payoff of Bridge</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#deep-q-learning">Deep-Q Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#nfsp">NFSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#cfr">CFR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#deepcfr">DeepCFR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#adding-pre-trained-rule-based-models">Adding Pre-trained/Rule-based models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developping-algorithms">Developping Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#adding-new-environments">Adding New Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#customizing-environments">Customizing Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#state-representation">State Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#action-encoding">Action Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#reward-calculation">Reward Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#modifying-game">Modifying Game</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.env">rlcard.envs.env</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env"><code class="docutils literal notranslate"><span class="pre">Env</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.get_action_feature"><code class="docutils literal notranslate"><span class="pre">Env.get_action_feature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.get_payoffs"><code class="docutils literal notranslate"><span class="pre">Env.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">Env.get_perfect_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.get_player_id"><code class="docutils literal notranslate"><span class="pre">Env.get_player_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.get_state"><code class="docutils literal notranslate"><span class="pre">Env.get_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.is_over"><code class="docutils literal notranslate"><span class="pre">Env.is_over()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.reset"><code class="docutils literal notranslate"><span class="pre">Env.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.run"><code class="docutils literal notranslate"><span class="pre">Env.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.seed"><code class="docutils literal notranslate"><span class="pre">Env.seed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.set_agents"><code class="docutils literal notranslate"><span class="pre">Env.set_agents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.step"><code class="docutils literal notranslate"><span class="pre">Env.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.env.Env.step_back"><code class="docutils literal notranslate"><span class="pre">Env.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.registration">rlcard.envs.registration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.EnvRegistry"><code class="docutils literal notranslate"><span class="pre">EnvRegistry</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.EnvRegistry.make"><code class="docutils literal notranslate"><span class="pre">EnvRegistry.make()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.EnvRegistry.register"><code class="docutils literal notranslate"><span class="pre">EnvRegistry.register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.EnvSpec"><code class="docutils literal notranslate"><span class="pre">EnvSpec</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.EnvSpec.make"><code class="docutils literal notranslate"><span class="pre">EnvSpec.make()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.make"><code class="docutils literal notranslate"><span class="pre">make()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.registration.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.blackjack">rlcard.envs.blackjack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.blackjack.BlackjackEnv"><code class="docutils literal notranslate"><span class="pre">BlackjackEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.blackjack.BlackjackEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">BlackjackEnv.get_payoffs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.blackjack.get_score"><code class="docutils literal notranslate"><span class="pre">get_score()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.doudizhu">rlcard.envs.doudizhu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.doudizhu.DoudizhuEnv"><code class="docutils literal notranslate"><span class="pre">DoudizhuEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.doudizhu.DoudizhuEnv.get_action_feature"><code class="docutils literal notranslate"><span class="pre">DoudizhuEnv.get_action_feature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.doudizhu.DoudizhuEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">DoudizhuEnv.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.doudizhu.DoudizhuEnv.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">DoudizhuEnv.get_perfect_information()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.limitholdem">rlcard.envs.limitholdem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.limitholdem.LimitholdemEnv"><code class="docutils literal notranslate"><span class="pre">LimitholdemEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.limitholdem.LimitholdemEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">LimitholdemEnv.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.limitholdem.LimitholdemEnv.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">LimitholdemEnv.get_perfect_information()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.gin_rummy">rlcard.envs.gin_rummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.gin_rummy.GinRummyEnv"><code class="docutils literal notranslate"><span class="pre">GinRummyEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.gin_rummy.GinRummyEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">GinRummyEnv.get_payoffs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.leducholdem">rlcard.envs.leducholdem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.leducholdem.LeducholdemEnv"><code class="docutils literal notranslate"><span class="pre">LeducholdemEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.leducholdem.LeducholdemEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">LeducholdemEnv.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.leducholdem.LeducholdemEnv.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">LeducholdemEnv.get_perfect_information()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.mahjong">rlcard.envs.mahjong</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.mahjong.MahjongEnv"><code class="docutils literal notranslate"><span class="pre">MahjongEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.mahjong.MahjongEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">MahjongEnv.get_payoffs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.nolimitholdem">rlcard.envs.nolimitholdem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.nolimitholdem.NolimitholdemEnv"><code class="docutils literal notranslate"><span class="pre">NolimitholdemEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.nolimitholdem.NolimitholdemEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">NolimitholdemEnv.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.nolimitholdem.NolimitholdemEnv.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">NolimitholdemEnv.get_perfect_information()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.bridge">rlcard.envs.bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeEnv"><code class="docutils literal notranslate"><span class="pre">BridgeEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">BridgeEnv.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeEnv.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">BridgeEnv.get_perfect_information()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgePayoffDelegate"><code class="docutils literal notranslate"><span class="pre">BridgePayoffDelegate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgePayoffDelegate.get_payoffs"><code class="docutils literal notranslate"><span class="pre">BridgePayoffDelegate.get_payoffs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeStateExtractor"><code class="docutils literal notranslate"><span class="pre">BridgeStateExtractor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeStateExtractor.extract_state"><code class="docutils literal notranslate"><span class="pre">BridgeStateExtractor.extract_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeStateExtractor.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">BridgeStateExtractor.get_legal_actions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.BridgeStateExtractor.get_state_shape_size"><code class="docutils literal notranslate"><span class="pre">BridgeStateExtractor.get_state_shape_size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.DefaultBridgePayoffDelegate"><code class="docutils literal notranslate"><span class="pre">DefaultBridgePayoffDelegate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.DefaultBridgePayoffDelegate.get_payoffs"><code class="docutils literal notranslate"><span class="pre">DefaultBridgePayoffDelegate.get_payoffs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.DefaultBridgeStateExtractor"><code class="docutils literal notranslate"><span class="pre">DefaultBridgeStateExtractor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.DefaultBridgeStateExtractor.extract_state"><code class="docutils literal notranslate"><span class="pre">DefaultBridgeStateExtractor.extract_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.bridge.DefaultBridgeStateExtractor.get_state_shape_size"><code class="docutils literal notranslate"><span class="pre">DefaultBridgeStateExtractor.get_state_shape_size()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.envs.html#module-rlcard.envs.uno">rlcard.envs.uno</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.uno.UnoEnv"><code class="docutils literal notranslate"><span class="pre">UnoEnv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.uno.UnoEnv.get_payoffs"><code class="docutils literal notranslate"><span class="pre">UnoEnv.get_payoffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.envs.html#rlcard.envs.uno.UnoEnv.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">UnoEnv.get_perfect_information()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.utils.html#module-rlcard.utils.utils">rlcard.utils.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.elegent_form"><code class="docutils literal notranslate"><span class="pre">elegent_form()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.get_device"><code class="docutils literal notranslate"><span class="pre">get_device()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.init_54_deck"><code class="docutils literal notranslate"><span class="pre">init_54_deck()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.init_standard_deck"><code class="docutils literal notranslate"><span class="pre">init_standard_deck()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.plot_curve"><code class="docutils literal notranslate"><span class="pre">plot_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.print_card"><code class="docutils literal notranslate"><span class="pre">print_card()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.rank2int"><code class="docutils literal notranslate"><span class="pre">rank2int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.remove_illegal"><code class="docutils literal notranslate"><span class="pre">remove_illegal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.reorganize"><code class="docutils literal notranslate"><span class="pre">reorganize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.set_seed"><code class="docutils literal notranslate"><span class="pre">set_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.utils.tournament"><code class="docutils literal notranslate"><span class="pre">tournament()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.utils.html#module-rlcard.utils.logger">rlcard.utils.logger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.logger.Logger.log"><code class="docutils literal notranslate"><span class="pre">Logger.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.logger.Logger.log_performance"><code class="docutils literal notranslate"><span class="pre">Logger.log_performance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.utils.html#module-rlcard.utils.seeding">rlcard.utils.seeding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.seeding.colorize"><code class="docutils literal notranslate"><span class="pre">colorize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.seeding.create_seed"><code class="docutils literal notranslate"><span class="pre">create_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.seeding.error"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.seeding.hash_seed"><code class="docutils literal notranslate"><span class="pre">hash_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.seeding.np_random"><code class="docutils literal notranslate"><span class="pre">np_random()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.utils.html#module-rlcard.utils.pettingzoo_utils">rlcard.utils.pettingzoo_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.pettingzoo_utils.reorganize_pettingzoo"><code class="docutils literal notranslate"><span class="pre">reorganize_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.pettingzoo_utils.run_game_pettingzoo"><code class="docutils literal notranslate"><span class="pre">run_game_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.pettingzoo_utils.tournament_pettingzoo"><code class="docutils literal notranslate"><span class="pre">tournament_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.utils.html#rlcard.utils.pettingzoo_utils.wrap_state"><code class="docutils literal notranslate"><span class="pre">wrap_state()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.blackjack.html">rlcard.games.blackjack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.blackjack.html#module-rlcard.games.blackjack.dealer">rlcard.games.blackjack.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.dealer.BlackjackDealer"><code class="docutils literal notranslate"><span class="pre">BlackjackDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.dealer.BlackjackDealer.deal_card"><code class="docutils literal notranslate"><span class="pre">BlackjackDealer.deal_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.dealer.BlackjackDealer.shuffle"><code class="docutils literal notranslate"><span class="pre">BlackjackDealer.shuffle()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.blackjack.html#module-rlcard.games.blackjack.game">rlcard.games.blackjack.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame"><code class="docutils literal notranslate"><span class="pre">BlackjackGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.configure"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.configure()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.get_state"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.init_game"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.is_over"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.step"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.game.BlackjackGame.step_back"><code class="docutils literal notranslate"><span class="pre">BlackjackGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.blackjack.html#module-rlcard.games.blackjack.judger">rlcard.games.blackjack.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.judger.BlackjackJudger"><code class="docutils literal notranslate"><span class="pre">BlackjackJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.judger.BlackjackJudger.judge_game"><code class="docutils literal notranslate"><span class="pre">BlackjackJudger.judge_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.judger.BlackjackJudger.judge_round"><code class="docutils literal notranslate"><span class="pre">BlackjackJudger.judge_round()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.judger.BlackjackJudger.judge_score"><code class="docutils literal notranslate"><span class="pre">BlackjackJudger.judge_score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.blackjack.html#module-rlcard.games.blackjack.player">rlcard.games.blackjack.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.player.BlackjackPlayer"><code class="docutils literal notranslate"><span class="pre">BlackjackPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.blackjack.html#rlcard.games.blackjack.player.BlackjackPlayer.get_player_id"><code class="docutils literal notranslate"><span class="pre">BlackjackPlayer.get_player_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.doudizhu.html">rlcard.games.doudizhu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.doudizhu.html#module-rlcard.games.doudizhu.dealer">rlcard.games.doudizhu.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.dealer.DoudizhuDealer"><code class="docutils literal notranslate"><span class="pre">DoudizhuDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.dealer.DoudizhuDealer.deal_cards"><code class="docutils literal notranslate"><span class="pre">DoudizhuDealer.deal_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.dealer.DoudizhuDealer.determine_role"><code class="docutils literal notranslate"><span class="pre">DoudizhuDealer.determine_role()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.dealer.DoudizhuDealer.shuffle"><code class="docutils literal notranslate"><span class="pre">DoudizhuDealer.shuffle()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.doudizhu.html#module-rlcard.games.doudizhu.game">rlcard.games.doudizhu.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.get_state"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.init_game"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.is_over"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.step"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.game.DoudizhuGame.step_back"><code class="docutils literal notranslate"><span class="pre">DoudizhuGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.doudizhu.html#module-rlcard.games.doudizhu.judger">rlcard.games.doudizhu.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.calc_playable_cards"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.calc_playable_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.chain_indexes"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.chain_indexes()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.get_playable_cards"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.get_playable_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.judge_game"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.judge_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.judge_payoffs"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.judge_payoffs()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.pair_attachments"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.pair_attachments()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.playable_cards_from_hand"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.playable_cards_from_hand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.restore_playable_cards"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.restore_playable_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.judger.DoudizhuJudger.solo_attachments"><code class="docutils literal notranslate"><span class="pre">DoudizhuJudger.solo_attachments()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.doudizhu.html#module-rlcard.games.doudizhu.player">rlcard.games.doudizhu.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer.available_actions"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer.available_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer.current_hand"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer.current_hand</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer.get_state"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer.play"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer.play()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer.play_back"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer.play_back()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.player.DoudizhuPlayer.set_current_hand"><code class="docutils literal notranslate"><span class="pre">DoudizhuPlayer.set_current_hand()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.doudizhu.html#module-rlcard.games.doudizhu.round">rlcard.games.doudizhu.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.cards_ndarray_to_str"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.cards_ndarray_to_str()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.find_last_greater_player_id_in_trace"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.find_last_greater_player_id_in_trace()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.find_last_played_cards_in_trace"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.find_last_played_cards_in_trace()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.initiate"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.initiate()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.proceed_round"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.proceed_round()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.step_back"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.step_back()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.doudizhu.html#rlcard.games.doudizhu.round.DoudizhuRound.update_public"><code class="docutils literal notranslate"><span class="pre">DoudizhuRound.update_public()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.limitholdem.html">rlcard.games.limitholdem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.limitholdem.html#module-rlcard.games.limitholdem.dealer">rlcard.games.limitholdem.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.dealer.LimitHoldemDealer"><code class="docutils literal notranslate"><span class="pre">LimitHoldemDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.dealer.LimitHoldemDealer.deal_card"><code class="docutils literal notranslate"><span class="pre">LimitHoldemDealer.deal_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.dealer.LimitHoldemDealer.shuffle"><code class="docutils literal notranslate"><span class="pre">LimitHoldemDealer.shuffle()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.limitholdem.html#module-rlcard.games.limitholdem.game">rlcard.games.limitholdem.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.configure"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.configure()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.get_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.get_payoffs"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.get_payoffs()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.get_state"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.init_game"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.is_over"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.step"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.game.LimitHoldemGame.step_back"><code class="docutils literal notranslate"><span class="pre">LimitHoldemGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.limitholdem.html#module-rlcard.games.limitholdem.judger">rlcard.games.limitholdem.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.judger.LimitHoldemJudger"><code class="docutils literal notranslate"><span class="pre">LimitHoldemJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.judger.LimitHoldemJudger.judge_game"><code class="docutils literal notranslate"><span class="pre">LimitHoldemJudger.judge_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.judger.LimitHoldemJudger.split_pot_among_players"><code class="docutils literal notranslate"><span class="pre">LimitHoldemJudger.split_pot_among_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.judger.LimitHoldemJudger.split_pots_among_players"><code class="docutils literal notranslate"><span class="pre">LimitHoldemJudger.split_pots_among_players()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.limitholdem.html#module-rlcard.games.limitholdem.player">rlcard.games.limitholdem.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.LimitHoldemPlayer"><code class="docutils literal notranslate"><span class="pre">LimitHoldemPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.LimitHoldemPlayer.get_player_id"><code class="docutils literal notranslate"><span class="pre">LimitHoldemPlayer.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.LimitHoldemPlayer.get_state"><code class="docutils literal notranslate"><span class="pre">LimitHoldemPlayer.get_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.PlayerStatus"><code class="docutils literal notranslate"><span class="pre">PlayerStatus</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.PlayerStatus.ALIVE"><code class="docutils literal notranslate"><span class="pre">PlayerStatus.ALIVE</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.PlayerStatus.ALLIN"><code class="docutils literal notranslate"><span class="pre">PlayerStatus.ALLIN</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.player.PlayerStatus.FOLDED"><code class="docutils literal notranslate"><span class="pre">PlayerStatus.FOLDED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.limitholdem.html#module-rlcard.games.limitholdem.round">rlcard.games.limitholdem.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.round.LimitHoldemRound"><code class="docutils literal notranslate"><span class="pre">LimitHoldemRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.round.LimitHoldemRound.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">LimitHoldemRound.get_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.round.LimitHoldemRound.is_over"><code class="docutils literal notranslate"><span class="pre">LimitHoldemRound.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.round.LimitHoldemRound.proceed_round"><code class="docutils literal notranslate"><span class="pre">LimitHoldemRound.proceed_round()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.round.LimitHoldemRound.start_new_round"><code class="docutils literal notranslate"><span class="pre">LimitHoldemRound.start_new_round()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.limitholdem.html#module-rlcard.games.limitholdem.utils">rlcard.games.limitholdem.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.Hand"><code class="docutils literal notranslate"><span class="pre">Hand</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.Hand.evaluateHand"><code class="docutils literal notranslate"><span class="pre">Hand.evaluateHand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.Hand.get_hand_five_cards"><code class="docutils literal notranslate"><span class="pre">Hand.get_hand_five_cards()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.compare_hands"><code class="docutils literal notranslate"><span class="pre">compare_hands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.compare_ranks"><code class="docutils literal notranslate"><span class="pre">compare_ranks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.determine_winner"><code class="docutils literal notranslate"><span class="pre">determine_winner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.determine_winner_four_of_a_kind"><code class="docutils literal notranslate"><span class="pre">determine_winner_four_of_a_kind()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.determine_winner_straight"><code class="docutils literal notranslate"><span class="pre">determine_winner_straight()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.limitholdem.html#rlcard.games.limitholdem.utils.final_compare"><code class="docutils literal notranslate"><span class="pre">final_compare()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.nolimitholdem.html">rlcard.games.nolimitholdem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.nolimitholdem.html#module-rlcard.games.nolimitholdem.dealer">rlcard.games.nolimitholdem.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.dealer.NolimitholdemDealer"><code class="docutils literal notranslate"><span class="pre">NolimitholdemDealer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.nolimitholdem.html#module-rlcard.games.nolimitholdem.game">rlcard.games.nolimitholdem.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.configure"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.configure()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.get_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.get_payoffs"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.get_payoffs()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.get_state"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.init_game"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.step"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.NolimitholdemGame.step_back"><code class="docutils literal notranslate"><span class="pre">NolimitholdemGame.step_back()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage"><code class="docutils literal notranslate"><span class="pre">Stage</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage.END_HIDDEN"><code class="docutils literal notranslate"><span class="pre">Stage.END_HIDDEN</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage.FLOP"><code class="docutils literal notranslate"><span class="pre">Stage.FLOP</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage.PREFLOP"><code class="docutils literal notranslate"><span class="pre">Stage.PREFLOP</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage.RIVER"><code class="docutils literal notranslate"><span class="pre">Stage.RIVER</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage.SHOWDOWN"><code class="docutils literal notranslate"><span class="pre">Stage.SHOWDOWN</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.game.Stage.TURN"><code class="docutils literal notranslate"><span class="pre">Stage.TURN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.nolimitholdem.html#module-rlcard.games.nolimitholdem.judger">rlcard.games.nolimitholdem.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.judger.NolimitholdemJudger"><code class="docutils literal notranslate"><span class="pre">NolimitholdemJudger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.nolimitholdem.html#module-rlcard.games.nolimitholdem.player">rlcard.games.nolimitholdem.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.player.NolimitholdemPlayer"><code class="docutils literal notranslate"><span class="pre">NolimitholdemPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.player.NolimitholdemPlayer.bet"><code class="docutils literal notranslate"><span class="pre">NolimitholdemPlayer.bet()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.nolimitholdem.html#module-rlcard.games.nolimitholdem.round">rlcard.games.nolimitholdem.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.Action"><code class="docutils literal notranslate"><span class="pre">Action</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.Action.ALL_IN"><code class="docutils literal notranslate"><span class="pre">Action.ALL_IN</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.Action.CHECK_CALL"><code class="docutils literal notranslate"><span class="pre">Action.CHECK_CALL</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.Action.FOLD"><code class="docutils literal notranslate"><span class="pre">Action.FOLD</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.Action.RAISE_HALF_POT"><code class="docutils literal notranslate"><span class="pre">Action.RAISE_HALF_POT</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.Action.RAISE_POT"><code class="docutils literal notranslate"><span class="pre">Action.RAISE_POT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.NolimitholdemRound"><code class="docutils literal notranslate"><span class="pre">NolimitholdemRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.NolimitholdemRound.get_nolimit_legal_actions"><code class="docutils literal notranslate"><span class="pre">NolimitholdemRound.get_nolimit_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.NolimitholdemRound.is_over"><code class="docutils literal notranslate"><span class="pre">NolimitholdemRound.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.NolimitholdemRound.proceed_round"><code class="docutils literal notranslate"><span class="pre">NolimitholdemRound.proceed_round()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.nolimitholdem.html#rlcard.games.nolimitholdem.round.NolimitholdemRound.start_new_round"><code class="docutils literal notranslate"><span class="pre">NolimitholdemRound.start_new_round()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.leducholdem.html">rlcard.games.leducholdem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.leducholdem.html#module-rlcard.games.leducholdem.dealer">rlcard.games.leducholdem.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.dealer.LeducholdemDealer"><code class="docutils literal notranslate"><span class="pre">LeducholdemDealer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.leducholdem.html#module-rlcard.games.leducholdem.game">rlcard.games.leducholdem.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.configure"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.configure()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.get_payoffs"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.get_payoffs()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.get_state"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.init_game"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.is_over"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.np_random"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.np_random</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.step"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.game.LeducholdemGame.step_back"><code class="docutils literal notranslate"><span class="pre">LeducholdemGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.leducholdem.html#module-rlcard.games.leducholdem.judger">rlcard.games.leducholdem.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.judger.LeducholdemJudger"><code class="docutils literal notranslate"><span class="pre">LeducholdemJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.judger.LeducholdemJudger.judge_game"><code class="docutils literal notranslate"><span class="pre">LeducholdemJudger.judge_game()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.leducholdem.html#module-rlcard.games.leducholdem.player">rlcard.games.leducholdem.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.player.LeducholdemPlayer"><code class="docutils literal notranslate"><span class="pre">LeducholdemPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.player.LeducholdemPlayer.get_player_id"><code class="docutils literal notranslate"><span class="pre">LeducholdemPlayer.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.player.LeducholdemPlayer.get_state"><code class="docutils literal notranslate"><span class="pre">LeducholdemPlayer.get_state()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.leducholdem.html#module-rlcard.games.leducholdem.round">rlcard.games.leducholdem.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.leducholdem.html#rlcard.games.leducholdem.round.LeducholdemRound"><code class="docutils literal notranslate"><span class="pre">LeducholdemRound</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.uno.html">rlcard.games.uno</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.dealer">rlcard.games.uno.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.dealer.UnoDealer"><code class="docutils literal notranslate"><span class="pre">UnoDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.dealer.UnoDealer.deal_cards"><code class="docutils literal notranslate"><span class="pre">UnoDealer.deal_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.dealer.UnoDealer.flip_top_card"><code class="docutils literal notranslate"><span class="pre">UnoDealer.flip_top_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.dealer.UnoDealer.shuffle"><code class="docutils literal notranslate"><span class="pre">UnoDealer.shuffle()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.game">rlcard.games.uno.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame"><code class="docutils literal notranslate"><span class="pre">UnoGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.configure"><code class="docutils literal notranslate"><span class="pre">UnoGame.configure()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">UnoGame.get_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">UnoGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">UnoGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.get_payoffs"><code class="docutils literal notranslate"><span class="pre">UnoGame.get_payoffs()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">UnoGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.get_state"><code class="docutils literal notranslate"><span class="pre">UnoGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.init_game"><code class="docutils literal notranslate"><span class="pre">UnoGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.is_over"><code class="docutils literal notranslate"><span class="pre">UnoGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.step"><code class="docutils literal notranslate"><span class="pre">UnoGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.game.UnoGame.step_back"><code class="docutils literal notranslate"><span class="pre">UnoGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.judger">rlcard.games.uno.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.judger.UnoJudger"><code class="docutils literal notranslate"><span class="pre">UnoJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.judger.UnoJudger.judge_winner"><code class="docutils literal notranslate"><span class="pre">UnoJudger.judge_winner()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.player">rlcard.games.uno.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.player.UnoPlayer"><code class="docutils literal notranslate"><span class="pre">UnoPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.player.UnoPlayer.get_player_id"><code class="docutils literal notranslate"><span class="pre">UnoPlayer.get_player_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.round">rlcard.games.uno.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound"><code class="docutils literal notranslate"><span class="pre">UnoRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound.flip_top_card"><code class="docutils literal notranslate"><span class="pre">UnoRound.flip_top_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">UnoRound.get_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound.get_state"><code class="docutils literal notranslate"><span class="pre">UnoRound.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound.perform_top_card"><code class="docutils literal notranslate"><span class="pre">UnoRound.perform_top_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound.proceed_round"><code class="docutils literal notranslate"><span class="pre">UnoRound.proceed_round()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.round.UnoRound.replace_deck"><code class="docutils literal notranslate"><span class="pre">UnoRound.replace_deck()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.card">rlcard.games.uno.card</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.card.UnoCard"><code class="docutils literal notranslate"><span class="pre">UnoCard</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.card.UnoCard.get_str"><code class="docutils literal notranslate"><span class="pre">UnoCard.get_str()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.card.UnoCard.info"><code class="docutils literal notranslate"><span class="pre">UnoCard.info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.card.UnoCard.print_cards"><code class="docutils literal notranslate"><span class="pre">UnoCard.print_cards()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.uno.html#module-rlcard.games.uno.utils">rlcard.games.uno.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.utils.cards2list"><code class="docutils literal notranslate"><span class="pre">cards2list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.utils.encode_hand"><code class="docutils literal notranslate"><span class="pre">encode_hand()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.utils.encode_target"><code class="docutils literal notranslate"><span class="pre">encode_target()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.utils.hand2dict"><code class="docutils literal notranslate"><span class="pre">hand2dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.uno.html#rlcard.games.uno.utils.init_deck"><code class="docutils literal notranslate"><span class="pre">init_deck()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.mahjong.html">rlcard.games.mahjong</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.dealer">rlcard.games.mahjong.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.dealer.MahjongDealer"><code class="docutils literal notranslate"><span class="pre">MahjongDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.dealer.MahjongDealer.deal_cards"><code class="docutils literal notranslate"><span class="pre">MahjongDealer.deal_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.dealer.MahjongDealer.shuffle"><code class="docutils literal notranslate"><span class="pre">MahjongDealer.shuffle()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.game">rlcard.games.mahjong.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame"><code class="docutils literal notranslate"><span class="pre">MahjongGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">MahjongGame.get_legal_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">MahjongGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">MahjongGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">MahjongGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.get_state"><code class="docutils literal notranslate"><span class="pre">MahjongGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.init_game"><code class="docutils literal notranslate"><span class="pre">MahjongGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.is_over"><code class="docutils literal notranslate"><span class="pre">MahjongGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.step"><code class="docutils literal notranslate"><span class="pre">MahjongGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.game.MahjongGame.step_back"><code class="docutils literal notranslate"><span class="pre">MahjongGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.judger">rlcard.games.mahjong.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger"><code class="docutils literal notranslate"><span class="pre">MahjongJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger.cal_set"><code class="docutils literal notranslate"><span class="pre">MahjongJudger.cal_set()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger.check_consecutive"><code class="docutils literal notranslate"><span class="pre">MahjongJudger.check_consecutive()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger.judge_chow"><code class="docutils literal notranslate"><span class="pre">MahjongJudger.judge_chow()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger.judge_game"><code class="docutils literal notranslate"><span class="pre">MahjongJudger.judge_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger.judge_hu"><code class="docutils literal notranslate"><span class="pre">MahjongJudger.judge_hu()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.judger.MahjongJudger.judge_pong_gong"><code class="docutils literal notranslate"><span class="pre">MahjongJudger.judge_pong_gong()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.player">rlcard.games.mahjong.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.chow"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.chow()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.get_player_id"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.gong"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.gong()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.play_card"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.play_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.pong"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.pong()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.print_hand"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.print_hand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.player.MahjongPlayer.print_pile"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer.print_pile()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.round">rlcard.games.mahjong.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.round.MahjongRound"><code class="docutils literal notranslate"><span class="pre">MahjongRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.round.MahjongRound.get_state"><code class="docutils literal notranslate"><span class="pre">MahjongRound.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.round.MahjongRound.proceed_round"><code class="docutils literal notranslate"><span class="pre">MahjongRound.proceed_round()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.card">rlcard.games.mahjong.card</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.card.MahjongCard"><code class="docutils literal notranslate"><span class="pre">MahjongCard</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.card.MahjongCard.get_str"><code class="docutils literal notranslate"><span class="pre">MahjongCard.get_str()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.card.MahjongCard.info"><code class="docutils literal notranslate"><span class="pre">MahjongCard.info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.card.MahjongCard.set_index_num"><code class="docutils literal notranslate"><span class="pre">MahjongCard.set_index_num()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.mahjong.html#module-rlcard.games.mahjong.utils">rlcard.games.mahjong.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.utils.cards2list"><code class="docutils literal notranslate"><span class="pre">cards2list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.utils.encode_cards"><code class="docutils literal notranslate"><span class="pre">encode_cards()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.utils.init_deck"><code class="docutils literal notranslate"><span class="pre">init_deck()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.mahjong.html#rlcard.games.mahjong.utils.pile2list"><code class="docutils literal notranslate"><span class="pre">pile2list()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.gin_rummy.html">rlcard.games.gin_rummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html">rlcard.games.gin_rummy.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.action_event">rlcard.games.gin_rummy.utils.action_event</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.ActionEvent"><code class="docutils literal notranslate"><span class="pre">ActionEvent</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.ActionEvent.decode_action"><code class="docutils literal notranslate"><span class="pre">ActionEvent.decode_action()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.ActionEvent.get_num_actions"><code class="docutils literal notranslate"><span class="pre">ActionEvent.get_num_actions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.DeclareDeadHandAction"><code class="docutils literal notranslate"><span class="pre">DeclareDeadHandAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.DiscardAction"><code class="docutils literal notranslate"><span class="pre">DiscardAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.DrawCardAction"><code class="docutils literal notranslate"><span class="pre">DrawCardAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.GinAction"><code class="docutils literal notranslate"><span class="pre">GinAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.KnockAction"><code class="docutils literal notranslate"><span class="pre">KnockAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.PickUpDiscardAction"><code class="docutils literal notranslate"><span class="pre">PickUpDiscardAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.ScoreNorthPlayerAction"><code class="docutils literal notranslate"><span class="pre">ScoreNorthPlayerAction</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.action_event.ScoreSouthPlayerAction"><code class="docutils literal notranslate"><span class="pre">ScoreSouthPlayerAction</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.gin_rummy_error">rlcard.games.gin_rummy.utils.gin_rummy_error</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.gin_rummy_error.GinRummyError"><code class="docutils literal notranslate"><span class="pre">GinRummyError</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.gin_rummy_error.GinRummyProgramError"><code class="docutils literal notranslate"><span class="pre">GinRummyProgramError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.melding">rlcard.games.gin_rummy.utils.melding</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.melding.get_all_run_melds"><code class="docutils literal notranslate"><span class="pre">get_all_run_melds()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.melding.get_all_run_melds_for_suit"><code class="docutils literal notranslate"><span class="pre">get_all_run_melds_for_suit()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.melding.get_all_set_melds"><code class="docutils literal notranslate"><span class="pre">get_all_set_melds()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.melding.get_best_meld_clusters"><code class="docutils literal notranslate"><span class="pre">get_best_meld_clusters()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.melding.get_meld_clusters"><code class="docutils literal notranslate"><span class="pre">get_meld_clusters()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.move">rlcard.games.gin_rummy.utils.move</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.DealHandMove"><code class="docutils literal notranslate"><span class="pre">DealHandMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.DeclareDeadHandMove"><code class="docutils literal notranslate"><span class="pre">DeclareDeadHandMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.DiscardMove"><code class="docutils literal notranslate"><span class="pre">DiscardMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.DrawCardMove"><code class="docutils literal notranslate"><span class="pre">DrawCardMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.GinMove"><code class="docutils literal notranslate"><span class="pre">GinMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.GinRummyMove"><code class="docutils literal notranslate"><span class="pre">GinRummyMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.KnockMove"><code class="docutils literal notranslate"><span class="pre">KnockMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.PickupDiscardMove"><code class="docutils literal notranslate"><span class="pre">PickupDiscardMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.PlayerMove"><code class="docutils literal notranslate"><span class="pre">PlayerMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.ScoreNorthMove"><code class="docutils literal notranslate"><span class="pre">ScoreNorthMove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.move.ScoreSouthMove"><code class="docutils literal notranslate"><span class="pre">ScoreSouthMove</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.scorers">rlcard.games.gin_rummy.utils.scorers</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.scorers.GinRummyScorer"><code class="docutils literal notranslate"><span class="pre">GinRummyScorer</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.scorers.GinRummyScorer.get_payoffs"><code class="docutils literal notranslate"><span class="pre">GinRummyScorer.get_payoffs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.scorers.get_payoff_gin_rummy_v0"><code class="docutils literal notranslate"><span class="pre">get_payoff_gin_rummy_v0()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.scorers.get_payoff_gin_rummy_v1"><code class="docutils literal notranslate"><span class="pre">get_payoff_gin_rummy_v1()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.settings">rlcard.games.gin_rummy.utils.settings</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.DealerForRound"><code class="docutils literal notranslate"><span class="pre">DealerForRound</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.DealerForRound.North"><code class="docutils literal notranslate"><span class="pre">DealerForRound.North</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.DealerForRound.Random"><code class="docutils literal notranslate"><span class="pre">DealerForRound.Random</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.DealerForRound.South"><code class="docutils literal notranslate"><span class="pre">DealerForRound.South</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting"><code class="docutils literal notranslate"><span class="pre">Setting</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.dealer_for_round"><code class="docutils literal notranslate"><span class="pre">Setting.dealer_for_round</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.default_setting"><code class="docutils literal notranslate"><span class="pre">Setting.default_setting()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.going_out_deadwood_count"><code class="docutils literal notranslate"><span class="pre">Setting.going_out_deadwood_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.is_allowed_gin"><code class="docutils literal notranslate"><span class="pre">Setting.is_allowed_gin</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.is_allowed_knock"><code class="docutils literal notranslate"><span class="pre">Setting.is_allowed_knock</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.is_allowed_pick_up_discard"><code class="docutils literal notranslate"><span class="pre">Setting.is_allowed_pick_up_discard</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.is_allowed_to_discard_picked_up_card"><code class="docutils literal notranslate"><span class="pre">Setting.is_allowed_to_discard_picked_up_card</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.is_always_knock"><code class="docutils literal notranslate"><span class="pre">Setting.is_always_knock</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.is_south_never_knocks"><code class="docutils literal notranslate"><span class="pre">Setting.is_south_never_knocks</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.max_drawn_card_count"><code class="docutils literal notranslate"><span class="pre">Setting.max_drawn_card_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.max_move_count"><code class="docutils literal notranslate"><span class="pre">Setting.max_move_count</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.simple_gin_rummy_setting"><code class="docutils literal notranslate"><span class="pre">Setting.simple_gin_rummy_setting()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Setting.stockpile_dead_card_count"><code class="docutils literal notranslate"><span class="pre">Setting.stockpile_dead_card_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Settings.change_settings"><code class="docutils literal notranslate"><span class="pre">Settings.change_settings()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Settings.get_config_with_invalid_settings_set_to_default_value"><code class="docutils literal notranslate"><span class="pre">Settings.get_config_with_invalid_settings_set_to_default_value()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.settings.Settings.print_settings"><code class="docutils literal notranslate"><span class="pre">Settings.print_settings()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.thinker">rlcard.games.gin_rummy.utils.thinker</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.thinker.Thinker"><code class="docutils literal notranslate"><span class="pre">Thinker</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.thinker.Thinker.get_meld_piles_with_discard_card"><code class="docutils literal notranslate"><span class="pre">Thinker.get_meld_piles_with_discard_card()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#module-rlcard.games.gin_rummy.utils.utils">rlcard.games.gin_rummy.utils.utils</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.card_from_card_id"><code class="docutils literal notranslate"><span class="pre">card_from_card_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.card_from_text"><code class="docutils literal notranslate"><span class="pre">card_from_text()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.decode_cards"><code class="docutils literal notranslate"><span class="pre">decode_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.encode_cards"><code class="docutils literal notranslate"><span class="pre">encode_cards()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_card"><code class="docutils literal notranslate"><span class="pre">get_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_card_id"><code class="docutils literal notranslate"><span class="pre">get_card_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_deadwood"><code class="docutils literal notranslate"><span class="pre">get_deadwood()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_deadwood_count"><code class="docutils literal notranslate"><span class="pre">get_deadwood_count()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_deadwood_value"><code class="docutils literal notranslate"><span class="pre">get_deadwood_value()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_deck"><code class="docutils literal notranslate"><span class="pre">get_deck()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_rank_id"><code class="docutils literal notranslate"><span class="pre">get_rank_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.utils.html#rlcard.games.gin_rummy.utils.utils.get_suit_id"><code class="docutils literal notranslate"><span class="pre">get_suit_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.gin_rummy.html#module-rlcard.games.gin_rummy.dealer">rlcard.games.gin_rummy.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.dealer.GinRummyDealer"><code class="docutils literal notranslate"><span class="pre">GinRummyDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.dealer.GinRummyDealer.deal_cards"><code class="docutils literal notranslate"><span class="pre">GinRummyDealer.deal_cards()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.gin_rummy.html#module-rlcard.games.gin_rummy.game">rlcard.games.gin_rummy.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame"><code class="docutils literal notranslate"><span class="pre">GinRummyGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.decode_action"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.decode_action()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.get_current_player"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.get_current_player()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.get_last_action"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.get_last_action()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.get_state"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.init_game"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.is_over"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.step"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.step()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.game.GinRummyGame.step_back"><code class="docutils literal notranslate"><span class="pre">GinRummyGame.step_back()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.gin_rummy.html#module-rlcard.games.gin_rummy.judge">rlcard.games.gin_rummy.judge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.judge.GinRummyJudge"><code class="docutils literal notranslate"><span class="pre">GinRummyJudge</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.judge.GinRummyJudge.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">GinRummyJudge.get_legal_actions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.judge.get_going_out_cards"><code class="docutils literal notranslate"><span class="pre">get_going_out_cards()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.gin_rummy.html#module-rlcard.games.gin_rummy.player">rlcard.games.gin_rummy.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.add_card_to_hand"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.add_card_to_hand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.did_populate_hand"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.did_populate_hand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.get_meld_clusters"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.get_meld_clusters()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.get_player_id"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.opponent_id_of"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.opponent_id_of()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.remove_card_from_hand"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.remove_card_from_hand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.player.GinRummyPlayer.short_name_of"><code class="docutils literal notranslate"><span class="pre">GinRummyPlayer.short_name_of()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.gin_rummy.html#module-rlcard.games.gin_rummy.round">rlcard.games.gin_rummy.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound"><code class="docutils literal notranslate"><span class="pre">GinRummyRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.declare_dead_hand"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.declare_dead_hand()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.discard"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.discard()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.draw_card"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.draw_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.get_current_player"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.get_current_player()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.gin"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.gin()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.knock"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.knock()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.pick_up_discard"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.pick_up_discard()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.score_player_0"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.score_player_0()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.gin_rummy.html#rlcard.games.gin_rummy.round.GinRummyRound.score_player_1"><code class="docutils literal notranslate"><span class="pre">GinRummyRound.score_player_1()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.bridge.html">rlcard.games.bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.bridge.html#module-rlcard.games.bridge.dealer">rlcard.games.bridge.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.dealer.BridgeDealer"><code class="docutils literal notranslate"><span class="pre">BridgeDealer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.dealer.BridgeDealer.deal_cards"><code class="docutils literal notranslate"><span class="pre">BridgeDealer.deal_cards()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.bridge.html#module-rlcard.games.bridge.game">rlcard.games.bridge.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame"><code class="docutils literal notranslate"><span class="pre">BridgeGame</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.get_num_actions"><code class="docutils literal notranslate"><span class="pre">BridgeGame.get_num_actions()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.get_num_players"><code class="docutils literal notranslate"><span class="pre">BridgeGame.get_num_players()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.get_player_id"><code class="docutils literal notranslate"><span class="pre">BridgeGame.get_player_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.get_state"><code class="docutils literal notranslate"><span class="pre">BridgeGame.get_state()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.init_game"><code class="docutils literal notranslate"><span class="pre">BridgeGame.init_game()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.is_over"><code class="docutils literal notranslate"><span class="pre">BridgeGame.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.game.BridgeGame.step"><code class="docutils literal notranslate"><span class="pre">BridgeGame.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.bridge.html#module-rlcard.games.bridge.judger">rlcard.games.bridge.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.judger.BridgeJudger"><code class="docutils literal notranslate"><span class="pre">BridgeJudger</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.judger.BridgeJudger.get_legal_actions"><code class="docutils literal notranslate"><span class="pre">BridgeJudger.get_legal_actions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.bridge.html#module-rlcard.games.bridge.player">rlcard.games.bridge.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.player.BridgePlayer"><code class="docutils literal notranslate"><span class="pre">BridgePlayer</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.player.BridgePlayer.remove_card_from_hand"><code class="docutils literal notranslate"><span class="pre">BridgePlayer.remove_card_from_hand()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.games.bridge.html#module-rlcard.games.bridge.round">rlcard.games.bridge.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound"><code class="docutils literal notranslate"><span class="pre">BridgeRound</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.board_id"><code class="docutils literal notranslate"><span class="pre">BridgeRound.board_id</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.dealer_id"><code class="docutils literal notranslate"><span class="pre">BridgeRound.dealer_id</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_current_player"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_current_player()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_declarer"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_declarer()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_dummy"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_dummy()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_left_defender"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_left_defender()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_perfect_information"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_perfect_information()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_right_defender"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_right_defender()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_trick_moves"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_trick_moves()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.get_trump_suit"><code class="docutils literal notranslate"><span class="pre">BridgeRound.get_trump_suit()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.is_bidding_over"><code class="docutils literal notranslate"><span class="pre">BridgeRound.is_bidding_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.is_over"><code class="docutils literal notranslate"><span class="pre">BridgeRound.is_over()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.make_call"><code class="docutils literal notranslate"><span class="pre">BridgeRound.make_call()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.play_card"><code class="docutils literal notranslate"><span class="pre">BridgeRound.play_card()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.print_scene"><code class="docutils literal notranslate"><span class="pre">BridgeRound.print_scene()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.round_phase"><code class="docutils literal notranslate"><span class="pre">BridgeRound.round_phase</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="rlcard.games.bridge.html#rlcard.games.bridge.round.BridgeRound.vul"><code class="docutils literal notranslate"><span class="pre">BridgeRound.vul</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.cfr_agent">rlcard.agents.cfr_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent"><code class="docutils literal notranslate"><span class="pre">CFRAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.action_probs"><code class="docutils literal notranslate"><span class="pre">CFRAgent.action_probs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">CFRAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.get_state"><code class="docutils literal notranslate"><span class="pre">CFRAgent.get_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.load"><code class="docutils literal notranslate"><span class="pre">CFRAgent.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.regret_matching"><code class="docutils literal notranslate"><span class="pre">CFRAgent.regret_matching()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.save"><code class="docutils literal notranslate"><span class="pre">CFRAgent.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.train"><code class="docutils literal notranslate"><span class="pre">CFRAgent.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.traverse_tree"><code class="docutils literal notranslate"><span class="pre">CFRAgent.traverse_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.cfr_agent.CFRAgent.update_policy"><code class="docutils literal notranslate"><span class="pre">CFRAgent.update_policy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dqn_agent">rlcard.agents.dqn_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent"><code class="docutils literal notranslate"><span class="pre">DQNAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">DQNAgent.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">DQNAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.feed"><code class="docutils literal notranslate"><span class="pre">DQNAgent.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.feed_memory"><code class="docutils literal notranslate"><span class="pre">DQNAgent.feed_memory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">DQNAgent.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.predict"><code class="docutils literal notranslate"><span class="pre">DQNAgent.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">DQNAgent.save_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.set_device"><code class="docutils literal notranslate"><span class="pre">DQNAgent.set_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.step"><code class="docutils literal notranslate"><span class="pre">DQNAgent.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.DQNAgent.train"><code class="docutils literal notranslate"><span class="pre">DQNAgent.train()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Estimator"><code class="docutils literal notranslate"><span class="pre">Estimator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Estimator.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">Estimator.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Estimator.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">Estimator.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Estimator.predict_nograd"><code class="docutils literal notranslate"><span class="pre">Estimator.predict_nograd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Estimator.update"><code class="docutils literal notranslate"><span class="pre">Estimator.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.EstimatorNetwork"><code class="docutils literal notranslate"><span class="pre">EstimatorNetwork</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.EstimatorNetwork.forward"><code class="docutils literal notranslate"><span class="pre">EstimatorNetwork.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Memory"><code class="docutils literal notranslate"><span class="pre">Memory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Memory.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">Memory.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Memory.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">Memory.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Memory.sample"><code class="docutils literal notranslate"><span class="pre">Memory.sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Memory.save"><code class="docutils literal notranslate"><span class="pre">Memory.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition"><code class="docutils literal notranslate"><span class="pre">Transition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition.action"><code class="docutils literal notranslate"><span class="pre">Transition.action</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition.done"><code class="docutils literal notranslate"><span class="pre">Transition.done</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition.legal_actions"><code class="docutils literal notranslate"><span class="pre">Transition.legal_actions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition.next_state"><code class="docutils literal notranslate"><span class="pre">Transition.next_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition.reward"><code class="docutils literal notranslate"><span class="pre">Transition.reward</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dqn_agent.Transition.state"><code class="docutils literal notranslate"><span class="pre">Transition.state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.nfsp_agent">rlcard.agents.nfsp_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.AveragePolicyNetwork"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.AveragePolicyNetwork.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.AveragePolicyNetwork.forward"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.AveragePolicyNetwork.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork.from_checkpoint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent"><code class="docutils literal notranslate"><span class="pre">NFSPAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.feed"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.sample_episode_policy"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.sample_episode_policy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.save_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.set_device"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.set_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.step"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.NFSPAgent.train_sl"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.train_sl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.ReservoirBuffer"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.ReservoirBuffer.add"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.ReservoirBuffer.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.ReservoirBuffer.clear"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.ReservoirBuffer.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.ReservoirBuffer.sample"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.Transition"><code class="docutils literal notranslate"><span class="pre">Transition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.Transition.action_probs"><code class="docutils literal notranslate"><span class="pre">Transition.action_probs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.nfsp_agent.Transition.info_state"><code class="docutils literal notranslate"><span class="pre">Transition.info_state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.pettingzoo_agents">rlcard.agents.pettingzoo_agents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.feed"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.feed"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">RandomAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">RandomAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">RandomAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.random_agent">rlcard.agents.random_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.random_agent.RandomAgent"><code class="docutils literal notranslate"><span class="pre">RandomAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.random_agent.RandomAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">RandomAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.random_agent.RandomAgent.step"><code class="docutils literal notranslate"><span class="pre">RandomAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dmc_agent.file_writer">rlcard.agents.dmc_agent.file_writer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.file_writer.FileWriter"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.file_writer.FileWriter.close"><code class="docutils literal notranslate"><span class="pre">FileWriter.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.file_writer.FileWriter.log"><code class="docutils literal notranslate"><span class="pre">FileWriter.log()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.file_writer.gather_metadata"><code class="docutils literal notranslate"><span class="pre">gather_metadata()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dmc_agent.model">rlcard.agents.dmc_agent.model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent"><code class="docutils literal notranslate"><span class="pre">DMCAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.eval"><code class="docutils literal notranslate"><span class="pre">DMCAgent.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">DMCAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.forward"><code class="docutils literal notranslate"><span class="pre">DMCAgent.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.load_state_dict"><code class="docutils literal notranslate"><span class="pre">DMCAgent.load_state_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.parameters"><code class="docutils literal notranslate"><span class="pre">DMCAgent.parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.predict"><code class="docutils literal notranslate"><span class="pre">DMCAgent.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.set_device"><code class="docutils literal notranslate"><span class="pre">DMCAgent.set_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.share_memory"><code class="docutils literal notranslate"><span class="pre">DMCAgent.share_memory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.state_dict"><code class="docutils literal notranslate"><span class="pre">DMCAgent.state_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCAgent.step"><code class="docutils literal notranslate"><span class="pre">DMCAgent.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCModel"><code class="docutils literal notranslate"><span class="pre">DMCModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCModel.eval"><code class="docutils literal notranslate"><span class="pre">DMCModel.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCModel.get_agent"><code class="docutils literal notranslate"><span class="pre">DMCModel.get_agent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCModel.get_agents"><code class="docutils literal notranslate"><span class="pre">DMCModel.get_agents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCModel.parameters"><code class="docutils literal notranslate"><span class="pre">DMCModel.parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCModel.share_memory"><code class="docutils literal notranslate"><span class="pre">DMCModel.share_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCNet"><code class="docutils literal notranslate"><span class="pre">DMCNet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.model.DMCNet.forward"><code class="docutils literal notranslate"><span class="pre">DMCNet.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dmc_agent.pettingzoo_model">rlcard.agents.dmc_agent.pettingzoo_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.feed"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.eval"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agent"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.get_agent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agents"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.get_agents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.parameters"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.share_memory"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.share_memory()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dmc_agent.pettingzoo_utils">rlcard.agents.dmc_agent.pettingzoo_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_utils.act_pettingzoo"><code class="docutils literal notranslate"><span class="pre">act_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.pettingzoo_utils.create_buffers_pettingzoo"><code class="docutils literal notranslate"><span class="pre">create_buffers_pettingzoo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dmc_agent.trainer">rlcard.agents.dmc_agent.trainer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.trainer.DMCTrainer"><code class="docutils literal notranslate"><span class="pre">DMCTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.trainer.DMCTrainer.start"><code class="docutils literal notranslate"><span class="pre">DMCTrainer.start()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.trainer.compute_loss"><code class="docutils literal notranslate"><span class="pre">compute_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.trainer.learn"><code class="docutils literal notranslate"><span class="pre">learn()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.dmc_agent.utils">rlcard.agents.dmc_agent.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.utils.act"><code class="docutils literal notranslate"><span class="pre">act()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.utils.create_buffers"><code class="docutils literal notranslate"><span class="pre">create_buffers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.utils.create_optimizers"><code class="docutils literal notranslate"><span class="pre">create_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.dmc_agent.utils.get_batch"><code class="docutils literal notranslate"><span class="pre">get_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.human_agents.blackjack_human_agent">rlcard.agents.human_agents.blackjack_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.human_agents.leduc_holdem_human_agent">rlcard.agents.human_agents.leduc_holdem_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.human_agents.limit_holdem_human_agent">rlcard.agents.human_agents.limit_holdem_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.human_agents.nolimit_holdem_human_agent">rlcard.agents.human_agents.nolimit_holdem_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.agents.html#module-rlcard.agents.human_agents.uno_human_agent">rlcard.agents.human_agents.uno_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.uno_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.uno_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.agents.html#rlcard.agents.human_agents.uno_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.bridge_rule_models">rlcard.models.bridge_rule_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.bridge_rule_models.BridgeDefenderNoviceRuleAgent"><code class="docutils literal notranslate"><span class="pre">BridgeDefenderNoviceRuleAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.bridge_rule_models.BridgeDefenderNoviceRuleAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">BridgeDefenderNoviceRuleAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.bridge_rule_models.BridgeDefenderNoviceRuleAgent.step"><code class="docutils literal notranslate"><span class="pre">BridgeDefenderNoviceRuleAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.doudizhu_rule_models">rlcard.models.doudizhu_rule_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1.card_str2list"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1.card_str2list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1.combine_cards"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1.combine_cards()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1.eval_step"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1.list2card_str"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1.list2card_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1.pick_chain"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1.pick_chain()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleAgentV1.step"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleAgentV1.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleModelV1"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleModelV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.doudizhu_rule_models.DouDizhuRuleModelV1.agents"><code class="docutils literal notranslate"><span class="pre">DouDizhuRuleModelV1.agents</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.gin_rummy_rule_models">rlcard.models.gin_rummy_rule_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.gin_rummy_rule_models.GinRummyNoviceRuleAgent"><code class="docutils literal notranslate"><span class="pre">GinRummyNoviceRuleAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.gin_rummy_rule_models.GinRummyNoviceRuleAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">GinRummyNoviceRuleAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.gin_rummy_rule_models.GinRummyNoviceRuleAgent.step"><code class="docutils literal notranslate"><span class="pre">GinRummyNoviceRuleAgent.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.gin_rummy_rule_models.GinRummyNoviceRuleModel"><code class="docutils literal notranslate"><span class="pre">GinRummyNoviceRuleModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.gin_rummy_rule_models.GinRummyNoviceRuleModel.agents"><code class="docutils literal notranslate"><span class="pre">GinRummyNoviceRuleModel.agents</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.leducholdem_rule_models">rlcard.models.leducholdem_rule_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleAgentV1"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleAgentV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleAgentV1.eval_step"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleAgentV1.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleAgentV1.step"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleAgentV1.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleAgentV2"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleAgentV2</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleAgentV2.eval_step"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleAgentV2.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleAgentV2.step"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleAgentV2.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleModelV1"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleModelV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleModelV1.agents"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleModelV1.agents</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleModelV2"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleModelV2</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.leducholdem_rule_models.LeducHoldemRuleModelV2.agents"><code class="docutils literal notranslate"><span class="pre">LeducHoldemRuleModelV2.agents</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.limitholdem_rule_models">rlcard.models.limitholdem_rule_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.limitholdem_rule_models.LimitholdemRuleAgentV1"><code class="docutils literal notranslate"><span class="pre">LimitholdemRuleAgentV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.limitholdem_rule_models.LimitholdemRuleAgentV1.eval_step"><code class="docutils literal notranslate"><span class="pre">LimitholdemRuleAgentV1.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.limitholdem_rule_models.LimitholdemRuleAgentV1.step"><code class="docutils literal notranslate"><span class="pre">LimitholdemRuleAgentV1.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.limitholdem_rule_models.LimitholdemRuleModelV1"><code class="docutils literal notranslate"><span class="pre">LimitholdemRuleModelV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.limitholdem_rule_models.LimitholdemRuleModelV1.agents"><code class="docutils literal notranslate"><span class="pre">LimitholdemRuleModelV1.agents</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.limitholdem_rule_models.LimitholdemRuleModelV1.use_raw"><code class="docutils literal notranslate"><span class="pre">LimitholdemRuleModelV1.use_raw</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.uno_rule_models">rlcard.models.uno_rule_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleAgentV1"><code class="docutils literal notranslate"><span class="pre">UNORuleAgentV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleAgentV1.count_colors"><code class="docutils literal notranslate"><span class="pre">UNORuleAgentV1.count_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleAgentV1.eval_step"><code class="docutils literal notranslate"><span class="pre">UNORuleAgentV1.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleAgentV1.filter_wild"><code class="docutils literal notranslate"><span class="pre">UNORuleAgentV1.filter_wild()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleAgentV1.step"><code class="docutils literal notranslate"><span class="pre">UNORuleAgentV1.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleModelV1"><code class="docutils literal notranslate"><span class="pre">UNORuleModelV1</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleModelV1.agents"><code class="docutils literal notranslate"><span class="pre">UNORuleModelV1.agents</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.uno_rule_models.UNORuleModelV1.use_raw"><code class="docutils literal notranslate"><span class="pre">UNORuleModelV1.use_raw</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.pretrained_models">rlcard.models.pretrained_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.pretrained_models.LeducHoldemCFRModel"><code class="docutils literal notranslate"><span class="pre">LeducHoldemCFRModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.pretrained_models.LeducHoldemCFRModel.agents"><code class="docutils literal notranslate"><span class="pre">LeducHoldemCFRModel.agents</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.models.html#module-rlcard.models.registration">rlcard.models.registration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.ModelRegistry"><code class="docutils literal notranslate"><span class="pre">ModelRegistry</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.ModelRegistry.load"><code class="docutils literal notranslate"><span class="pre">ModelRegistry.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.ModelRegistry.register"><code class="docutils literal notranslate"><span class="pre">ModelRegistry.register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.ModelSpec"><code class="docutils literal notranslate"><span class="pre">ModelSpec</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.ModelSpec.load"><code class="docutils literal notranslate"><span class="pre">ModelSpec.load()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rlcard.models.html#rlcard.models.registration.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rlcard.envs" href="rlcard.envs.html" />
+    <link rel="prev" title="Algorithms" href="algorithms.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-pre-trained-rule-based-models">Adding Pre-trained/Rule-based models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developping-algorithms">Developping Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-new-environments">Adding New Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-environments">Customizing Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#state-representation">State Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-encoding">Action Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reward-calculation">Reward Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-game">Modifying Game</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h1>
+<section id="adding-pre-trained-rule-based-models">
+<h2>Adding Pre-trained/Rule-based models<a class="headerlink" href="#adding-pre-trained-rule-based-models" title="Permalink to this heading">¶</a></h2>
+<p>You can add your own pre-trained/rule-based models to the toolkit by
+following several steps:</p>
+<ul>
+<li><p><strong>Develop models.</strong> You can either design a rule-based model or save
+a neural network model. For each game, you need to develop agents for
+all the players at the same time. You need to wrap each agent as a
+<code class="docutils literal notranslate"><span class="pre">Agent</span></code> class and make sure that <code class="docutils literal notranslate"><span class="pre">step</span></code>, <code class="docutils literal notranslate"><span class="pre">eval_step</span></code> and
+<code class="docutils literal notranslate"><span class="pre">use_raw</span></code> can work correctly.</p></li>
+<li><p><strong>Wrap models.</strong> You need to inherit the <code class="docutils literal notranslate"><span class="pre">Model</span></code> class in
+<code class="docutils literal notranslate"><span class="pre">rlcard/models/model.py</span></code>. Then put all the agents into a list.
+Rewrite <code class="docutils literal notranslate"><span class="pre">agent</span></code> property to return this list.</p></li>
+<li><p><strong>Register the model.</strong> Register the model in
+<code class="docutils literal notranslate"><span class="pre">rlcard/models/__init__.py</span></code>.</p></li>
+<li><p><strong>Load the model in environment.</strong> An example of loading
+<code class="docutils literal notranslate"><span class="pre">leduc-holdem-nfsp</span></code> model is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rlcard</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="n">leduc_nfsp_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;leduc-holdem-nfsp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then use <code class="docutils literal notranslate"><span class="pre">leduc_nfsp_model.agents</span></code> to obtain all the agents for the
+game.</p>
+</li>
+</ul>
+</section>
+<section id="developping-algorithms">
+<h2>Developping Algorithms<a class="headerlink" href="#developping-algorithms" title="Permalink to this heading">¶</a></h2>
+<p>Although users may do whatever they like to design and try their
+algorithms. We recommend wrapping a new algorithm as an <code class="docutils literal notranslate"><span class="pre">Agent</span></code> class
+as the <code class="docutils literal notranslate"><span class="pre">example</span> <span class="pre">agents</span></code>. To be compatible with the
+toolkit, the agent should have the following functions and attribute:
+- <code class="docutils literal notranslate"><span class="pre">step</span></code>: Given the current state, predict the next action.
+- <code class="docutils literal notranslate"><span class="pre">eval_step</span></code>: Similar to <code class="docutils literal notranslate"><span class="pre">step</span></code>, but for evaluation purpose.
+Reinforcement learning algorithms will usually add some noise for better
+exploration in training. In evaluation, no noise will be added to make
+predictions.
+- <code class="docutils literal notranslate"><span class="pre">use_raw</span></code>: A boolean attribute. <code class="docutils literal notranslate"><span class="pre">True</span></code> if the agent
+uses raw states to do reasoning; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the agent uses numerical
+values to play (such as neural networks).</p>
+</section>
+<section id="adding-new-environments">
+<h2>Adding New Environments<a class="headerlink" href="#adding-new-environments" title="Permalink to this heading">¶</a></h2>
+<p>To add a new environment to the toolkit, generally you should take the
+following steps:</p>
+<ul class="simple">
+<li><p><strong>Implement a game.</strong> Card games usually have
+similar structures so that they can be implemented with <code class="docutils literal notranslate"><span class="pre">Game</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Round</span></code>, <code class="docutils literal notranslate"><span class="pre">Dealer</span></code>, <code class="docutils literal notranslate"><span class="pre">Judger</span></code>, <code class="docutils literal notranslate"><span class="pre">Player</span></code>, as in existing games. The
+easiest way is to inherit the classed in
+<code class="docutils literal notranslate"><span class="pre">rlcard/core.py</span></code> and implement the functions.</p></li>
+<li><p><strong>Wrap the game with an environment.</strong> The easiest way is to inherit
+<code class="docutils literal notranslate"><span class="pre">Env</span></code> in <code class="docutils literal notranslate"><span class="pre">rlcard/envs/env.py</span></code>. You need to
+implement <code class="docutils literal notranslate"><span class="pre">_extract_state</span></code> which encodes the state, <code class="docutils literal notranslate"><span class="pre">_decode_action</span></code>
+which decodes actions from the id to the text string, and
+<code class="docutils literal notranslate"><span class="pre">get_payoffs</span></code> which calculates payoffs of the players.</p></li>
+<li><p><strong>Register the game.</strong> Now it is time to tell the toolkit where to locate the new
+environment. Go to <code class="docutils literal notranslate"><span class="pre">rlcard/envs/\_\_init\_\_.py</span></code>, and
+indicate the name of the game and its entry point.</p></li>
+</ul>
+<p>To test whether the new environment is set up successfully:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rlcard</span>
+<span class="n">rlcard</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="c1">#the new evironment#)</span>
+</pre></div>
+</div>
+</section>
+<section id="customizing-environments">
+<h2>Customizing Environments<a class="headerlink" href="#customizing-environments" title="Permalink to this heading">¶</a></h2>
+<p>In addition to the default state representation and action encoding, we
+also allow customizing an environment. In this document, we use Limit
+Texas Hold’em as an example to describe how to modify state
+representation, action encoding, reward calculation, or even the game
+rules.</p>
+<section id="state-representation">
+<h3>State Representation<a class="headerlink" href="#state-representation" title="Permalink to this heading">¶</a></h3>
+<p>To define our own state representation, we can modify the
+<code class="docutils literal notranslate"><span class="pre">extract_state</span></code> function in
+<code class="docutils literal notranslate"><span class="pre">/rlcard/envs/limitholdem.py</span></code>.</p>
+</section>
+<section id="action-encoding">
+<h3>Action Encoding<a class="headerlink" href="#action-encoding" title="Permalink to this heading">¶</a></h3>
+<p>To define our own action encoding, we can modify the <code class="docutils literal notranslate"><span class="pre">decode_action</span></code>
+function in
+<code class="docutils literal notranslate"><span class="pre">/rlcard/envs/limitholdem.py</span></code>.</p>
+</section>
+<section id="reward-calculation">
+<h3>Reward Calculation<a class="headerlink" href="#reward-calculation" title="Permalink to this heading">¶</a></h3>
+<p>To define our own reward calculation, we can modify the <code class="docutils literal notranslate"><span class="pre">get_payoffs</span></code>
+function in
+<code class="docutils literal notranslate"><span class="pre">/rlcard/envs/limitholdem.py</span></code>.</p>
+</section>
+<section id="modifying-game">
+<h3>Modifying Game<a class="headerlink" href="#modifying-game" title="Permalink to this heading">¶</a></h3>
+<p>We can change the parameters of a game to adjust its difficulty. For
+example, we can change the number of players, the number of allowed
+raises in Limit Texas Hold’em in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function in
+<code class="docutils literal notranslate"><span class="pre">rlcard/games/limitholdem/game.py</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="algorithms.html" class="btn btn-neutral float-left" title="Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rlcard.envs.html" class="btn btn-neutral float-right" title="rlcard.envs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

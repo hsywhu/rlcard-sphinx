@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rlcard.utils &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rlcard.games" href="rlcard.games.html" />
+    <link rel="prev" title="rlcard.envs" href="rlcard.envs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">rlcard.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.utils.utils">rlcard.utils.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.elegent_form"><code class="docutils literal notranslate"><span class="pre">elegent_form()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.get_device"><code class="docutils literal notranslate"><span class="pre">get_device()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.init_54_deck"><code class="docutils literal notranslate"><span class="pre">init_54_deck()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.init_standard_deck"><code class="docutils literal notranslate"><span class="pre">init_standard_deck()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.plot_curve"><code class="docutils literal notranslate"><span class="pre">plot_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.print_card"><code class="docutils literal notranslate"><span class="pre">print_card()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.rank2int"><code class="docutils literal notranslate"><span class="pre">rank2int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.remove_illegal"><code class="docutils literal notranslate"><span class="pre">remove_illegal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.reorganize"><code class="docutils literal notranslate"><span class="pre">reorganize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.set_seed"><code class="docutils literal notranslate"><span class="pre">set_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.utils.tournament"><code class="docutils literal notranslate"><span class="pre">tournament()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.utils.logger">rlcard.utils.logger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.utils.logger.Logger.log"><code class="docutils literal notranslate"><span class="pre">Logger.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.utils.logger.Logger.log_performance"><code class="docutils literal notranslate"><span class="pre">Logger.log_performance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.utils.seeding">rlcard.utils.seeding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.seeding.colorize"><code class="docutils literal notranslate"><span class="pre">colorize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.seeding.create_seed"><code class="docutils literal notranslate"><span class="pre">create_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.seeding.error"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.seeding.hash_seed"><code class="docutils literal notranslate"><span class="pre">hash_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.seeding.np_random"><code class="docutils literal notranslate"><span class="pre">np_random()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.utils.pettingzoo_utils">rlcard.utils.pettingzoo_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.pettingzoo_utils.reorganize_pettingzoo"><code class="docutils literal notranslate"><span class="pre">reorganize_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.pettingzoo_utils.run_game_pettingzoo"><code class="docutils literal notranslate"><span class="pre">run_game_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.pettingzoo_utils.tournament_pettingzoo"><code class="docutils literal notranslate"><span class="pre">tournament_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.utils.pettingzoo_utils.wrap_state"><code class="docutils literal notranslate"><span class="pre">wrap_state()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rlcard-utils">
+<h1>rlcard.utils<a class="headerlink" href="#rlcard-utils" title="Permalink to this heading">¶</a></h1>
+<section id="module-rlcard.utils.utils">
+<span id="rlcard-utils-utils"></span><h2>rlcard.utils.utils<a class="headerlink" href="#module-rlcard.utils.utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.elegent_form">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">elegent_form</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.elegent_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a elegent form of a card string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>card</strong> (<em>string</em>) – A card string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A nice form of card</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>elegent_card (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.get_device">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.get_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.init_54_deck">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">init_54_deck</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.init_54_deck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a standard deck of 52 cards, BJ and RJ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Alist of Card object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.init_standard_deck">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">init_standard_deck</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.init_standard_deck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a standard deck of 52 cards</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of Card object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.plot_curve">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">plot_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.plot_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data from csv file and plot the results</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.print_card">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">print_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.print_card" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nicely print a card or list of cards</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>card</strong> (<em>string</em><em> or </em><em>list</em>) – The card(s) to be printed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.rank2int">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">rank2int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.rank2int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the coresponding number of a rank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rank</strong> (<em>str</em>) – rank stored in Card object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number corresponding to the rank</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(int)</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>If the input rank is an empty string, the function will return -1.</p></li>
+<li><p>If the input rank is not valid, the function will return None.</p></li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.remove_illegal">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">remove_illegal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legal_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.remove_illegal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Remove illegal actions and normalize the</dt><dd><p>probability vector</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>action_probs</strong> (<em>numpy.array</em>) – A 1 dimention numpy array.</p></li>
+<li><p><strong>legal_actions</strong> (<em>list</em>) – A list of indices of legal actions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A normalized vector without legal actions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>probd (numpy.array)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.reorganize">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">reorganize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payoffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.reorganize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reorganize the trajectory to make it RL friendly</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trajectory</strong> (<em>list</em>) – A list of trajectories</p></li>
+<li><p><strong>payoffs</strong> (<em>list</em>) – A list of payoffs for the players. Each entry corresponds to one player</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new trajectories that can be fed into RL algorithms.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.set_seed">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">set_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.set_seed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.utils.tournament">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.utils.</span></span><span class="sig-name descname"><span class="pre">tournament</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.utils.tournament" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate he performance of the agents in the environment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>env</strong> (<em>Env class</em>) – The environment to be evaluated.</p></li>
+<li><p><strong>num</strong> (<em>int</em>) – The number of games to play.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of avrage payoffs for each player</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-rlcard.utils.logger">
+<span id="rlcard-utils-logger"></span><h2>rlcard.utils.logger<a class="headerlink" href="#module-rlcard.utils.logger" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.utils.logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.utils.logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Logger saves the running results and helps make plots from the results</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.utils.logger.Logger.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.logger.Logger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the text to log file then print it.
+:param text: text to log
+:type text: string</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.utils.logger.Logger.log_performance">
+<span class="sig-name descname"><span class="pre">log_performance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">episode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.logger.Logger.log_performance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log a point in the curve
+:param episode: the episode of the current point
+:type episode: int
+:param reward: the reward of the current point
+:type reward: float</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.utils.seeding">
+<span id="rlcard-utils-seeding"></span><h2>rlcard.utils.seeding<a class="headerlink" href="#module-rlcard.utils.seeding" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.seeding.colorize">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.seeding.</span></span><span class="sig-name descname"><span class="pre">colorize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.seeding.colorize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return string surrounded by appropriate terminal color codes to
+print colorized text.  Valid colors: gray, red, green, yellow,
+blue, magenta, cyan, white, crimson</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.seeding.create_seed">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.seeding.</span></span><span class="sig-name descname"><span class="pre">create_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.seeding.create_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a strong random seed. Otherwise, Python 2 would seed using
+the system time, which might be non-robust especially in the
+presence of concurrency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>Optional</em><em>[</em><em>int</em><em>, </em><em>str</em><em>]</em>) – None seeds from an operating system specific randomness source.</p></li>
+<li><p><strong>max_bytes</strong> – Maximum number of bytes to use in the seed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.seeding.error">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.seeding.</span></span><span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.seeding.error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.seeding.hash_seed">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.seeding.</span></span><span class="sig-name descname"><span class="pre">hash_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.seeding.hash_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Any given evaluation is likely to have many PRNG’s active at
+once. (Most commonly, because the environment is running in
+multiple processes.) There’s literature indicating that having
+linear correlations between seeds of multiple PRNG’s can correlate
+the outputs:</p>
+<p><a class="reference external" href="http://blogs.unity3d.com/2015/01/07/a-primer-on-repeatable-random-numbers/">http://blogs.unity3d.com/2015/01/07/a-primer-on-repeatable-random-numbers/</a>
+<a class="reference external" href="http://stackoverflow.com/questions/1554958/how-different-do-random-seeds-need-to-be">http://stackoverflow.com/questions/1554958/how-different-do-random-seeds-need-to-be</a>
+<a class="reference external" href="http://dl.acm.org/citation.cfm?id=1276928">http://dl.acm.org/citation.cfm?id=1276928</a></p>
+<p>Thus, for sanity we hash the seeds before using them. (This scheme
+is likely not crypto-strength, but it should be good enough to get
+rid of simple correlations.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – None seeds from an operating system specific randomness source.</p></li>
+<li><p><strong>max_bytes</strong> – Maximum number of bytes to use in the hashed seed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.seeding.np_random">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.seeding.</span></span><span class="sig-name descname"><span class="pre">np_random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.seeding.np_random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-rlcard.utils.pettingzoo_utils">
+<span id="rlcard-utils-pettingzoo-utils"></span><h2>rlcard.utils.pettingzoo_utils<a class="headerlink" href="#module-rlcard.utils.pettingzoo_utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.pettingzoo_utils.reorganize_pettingzoo">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.pettingzoo_utils.</span></span><span class="sig-name descname"><span class="pre">reorganize_pettingzoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectories</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.pettingzoo_utils.reorganize_pettingzoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reorganize the trajectory to make it RL friendly</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trajectory</strong> (<em>list</em>) – A list of trajectories</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new trajectories that can be fed into RL algorithms.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.pettingzoo_utils.run_game_pettingzoo">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.pettingzoo_utils.</span></span><span class="sig-name descname"><span class="pre">run_game_pettingzoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.pettingzoo_utils.run_game_pettingzoo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.pettingzoo_utils.tournament_pettingzoo">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.pettingzoo_utils.</span></span><span class="sig-name descname"><span class="pre">tournament_pettingzoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_episodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.pettingzoo_utils.tournament_pettingzoo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.utils.pettingzoo_utils.wrap_state">
+<span class="sig-prename descclassname"><span class="pre">rlcard.utils.pettingzoo_utils.</span></span><span class="sig-name descname"><span class="pre">wrap_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.utils.pettingzoo_utils.wrap_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rlcard.envs.html" class="btn btn-neutral float-left" title="rlcard.envs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rlcard.games.html" class="btn btn-neutral float-right" title="rlcard.games" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

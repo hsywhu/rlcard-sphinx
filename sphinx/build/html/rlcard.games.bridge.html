@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rlcard.games.bridge &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rlcard.agents" href="rlcard.agents.html" />
+    <link rel="prev" title="rlcard.games.gin_rummy.utils" href="rlcard.games.gin_rummy.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="rlcard.games.html">rlcard.games</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.blackjack.html">rlcard.games.blackjack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.doudizhu.html">rlcard.games.doudizhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.limitholdem.html">rlcard.games.limitholdem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.nolimitholdem.html">rlcard.games.nolimitholdem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.leducholdem.html">rlcard.games.leducholdem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.uno.html">rlcard.games.uno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.mahjong.html">rlcard.games.mahjong</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.gin_rummy.html">rlcard.games.gin_rummy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rlcard.games.bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.bridge.dealer">rlcard.games.bridge.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.bridge.dealer.BridgeDealer"><code class="docutils literal notranslate"><span class="pre">BridgeDealer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.bridge.game">rlcard.games.bridge.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.bridge.game.BridgeGame"><code class="docutils literal notranslate"><span class="pre">BridgeGame</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.bridge.judger">rlcard.games.bridge.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.bridge.judger.BridgeJudger"><code class="docutils literal notranslate"><span class="pre">BridgeJudger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.bridge.player">rlcard.games.bridge.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer"><code class="docutils literal notranslate"><span class="pre">BridgePlayer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.bridge.round">rlcard.games.bridge.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.bridge.round.BridgeRound"><code class="docutils literal notranslate"><span class="pre">BridgeRound</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rlcard-games-bridge">
+<h1>rlcard.games.bridge<a class="headerlink" href="#rlcard-games-bridge" title="Permalink to this heading">¶</a></h1>
+<section id="module-rlcard.games.bridge.dealer">
+<span id="rlcard-games-bridge-dealer"></span><h2>rlcard.games.bridge.dealer<a class="headerlink" href="#module-rlcard.games.bridge.dealer" title="Permalink to this heading">¶</a></h2>
+<p>File name: bridge/dealer.py
+Author: William Hale
+Date created: 11/25/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.bridge.dealer.BridgeDealer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.bridge.dealer.</span></span><span class="sig-name descname"><span class="pre">BridgeDealer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.dealer.BridgeDealer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Initialize a BridgeDealer dealer class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.dealer.BridgeDealer.deal_cards">
+<span class="sig-name descname"><span class="pre">deal_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><span class="pre">BridgePlayer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.dealer.BridgeDealer.deal_cards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deal some cards from stock_pile to one player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> (<a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><em>BridgePlayer</em></a>) – The BridgePlayer object</p></li>
+<li><p><strong>num</strong> (<em>int</em>) – The number of cards to be dealt</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.bridge.game">
+<span id="rlcard-games-bridge-game"></span><h2>rlcard.games.bridge.game<a class="headerlink" href="#module-rlcard.games.bridge.game" title="Permalink to this heading">¶</a></h2>
+<p>File name: bridge/game.py
+Author: William Hale
+Date created: 11/25/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.bridge.game.</span></span><span class="sig-name descname"><span class="pre">BridgeGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allow_step_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Game class. This class will interact with outer environment.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.get_num_actions">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_num_actions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.get_num_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of possible actions in the game</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.get_num_players">
+<span class="sig-name descname"><span class="pre">get_num_players</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.get_num_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of players in the game</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.get_player_id">
+<span class="sig-name descname"><span class="pre">get_player_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.get_player_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current player that will take actions soon</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get player’s state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The information of the state</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>state (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.init_game">
+<span class="sig-name descname"><span class="pre">init_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.init_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize all characters in the game and start round 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.is_over">
+<span class="sig-name descname"><span class="pre">is_over</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.is_over" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the current game is over</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.game.BridgeGame.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ActionEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.game.BridgeGame.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform game action and return next player number, and the state for next player</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.bridge.judger">
+<span id="rlcard-games-bridge-judger"></span><h2>rlcard.games.bridge.judger<a class="headerlink" href="#module-rlcard.games.bridge.judger" title="Permalink to this heading">¶</a></h2>
+<p>File name: bridge/judger.py
+Author: William Hale
+Date created: 11/25/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.bridge.judger.BridgeJudger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.bridge.judger.</span></span><span class="sig-name descname"><span class="pre">BridgeJudger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rlcard.games.bridge.game.BridgeGame" title="rlcard.games.bridge.game.BridgeGame"><span class="pre">BridgeGame</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.judger.BridgeJudger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Judger decides legal actions for current player</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.judger.BridgeJudger.get_legal_actions">
+<span class="sig-name descname"><span class="pre">get_legal_actions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ActionEvent</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rlcard.games.bridge.judger.BridgeJudger.get_legal_actions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[ActionEvent] of legal actions</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.bridge.player">
+<span id="rlcard-games-bridge-player"></span><h2>rlcard.games.bridge.player<a class="headerlink" href="#module-rlcard.games.bridge.player" title="Permalink to this heading">¶</a></h2>
+<p>File name: bridge/player.py
+Author: William Hale
+Date created: 11/25/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.bridge.player.BridgePlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.bridge.player.</span></span><span class="sig-name descname"><span class="pre">BridgePlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.player.BridgePlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.player.BridgePlayer.remove_card_from_hand">
+<span class="sig-name descname"><span class="pre">remove_card_from_hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BridgeCard</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.player.BridgePlayer.remove_card_from_hand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.bridge.round">
+<span id="rlcard-games-bridge-round"></span><h2>rlcard.games.bridge.round<a class="headerlink" href="#module-rlcard.games.bridge.round" title="Permalink to this heading">¶</a></h2>
+<p>File name: bridge/round.py
+Author: William Hale
+Date created: 11/25/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.bridge.round.</span></span><span class="sig-name descname"><span class="pre">BridgeRound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_players</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.board_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">board_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.board_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.dealer_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dealer_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.dealer_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_current_player">
+<span class="sig-name descname"><span class="pre">get_current_player</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><span class="pre">BridgePlayer</span></a></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_current_player" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_declarer">
+<span class="sig-name descname"><span class="pre">get_declarer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><span class="pre">BridgePlayer</span></a></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_declarer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_dummy">
+<span class="sig-name descname"><span class="pre">get_dummy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><span class="pre">BridgePlayer</span></a></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_dummy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_left_defender">
+<span class="sig-name descname"><span class="pre">get_left_defender</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><span class="pre">BridgePlayer</span></a></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_left_defender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_perfect_information">
+<span class="sig-name descname"><span class="pre">get_perfect_information</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_perfect_information" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_right_defender">
+<span class="sig-name descname"><span class="pre">get_right_defender</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rlcard.games.bridge.player.BridgePlayer" title="rlcard.games.bridge.player.BridgePlayer"><span class="pre">BridgePlayer</span></a></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_right_defender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_trick_moves">
+<span class="sig-name descname"><span class="pre">get_trick_moves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">PlayCardMove</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_trick_moves" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.get_trump_suit">
+<span class="sig-name descname"><span class="pre">get_trump_suit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.get_trump_suit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.is_bidding_over">
+<span class="sig-name descname"><span class="pre">is_bidding_over</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.is_bidding_over" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the current bidding is over</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.is_over">
+<span class="sig-name descname"><span class="pre">is_over</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.is_over" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the current game is over</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.make_call">
+<span class="sig-name descname"><span class="pre">make_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CallActionEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.make_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.play_card">
+<span class="sig-name descname"><span class="pre">play_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PlayCardAction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.play_card" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.print_scene">
+<span class="sig-name descname"><span class="pre">print_scene</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.print_scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.round_phase">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">round_phase</span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.round_phase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="rlcard.games.bridge.round.BridgeRound.vul">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vul</span></span><a class="headerlink" href="#rlcard.games.bridge.round.BridgeRound.vul" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rlcard.games.gin_rummy.utils.html" class="btn btn-neutral float-left" title="rlcard.games.gin_rummy.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rlcard.agents.html" class="btn btn-neutral float-right" title="rlcard.agents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

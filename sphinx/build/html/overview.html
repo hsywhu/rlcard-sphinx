@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Indices and tables" href="doctree.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#design-principles">Design Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rlcard-high-level-design">RLCard High-level Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environments">Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#games">Games</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agents">Agents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<section id="design-principles">
+<h2>Design Principles<a class="headerlink" href="#design-principles" title="Permalink to this heading">¶</a></h2>
+<p>The toolkit wraps each game by <code class="docutils literal notranslate"><span class="pre">Env</span></code> class with easy-to-use
+interfaces. The goal of this toolkit is to enable the users to focus on
+algorithm development without caring about the environment. The
+following design principles are applied when developing the toolkit:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Reproducible.</strong> Results on the environments can be reproduced. The same result should be obtained with the same random seed in different runs.</p></li>
+<li><p><strong>Accessible.</strong> The experiences are collected and well organized after each game with easy-to-use interfaces. Uses can conveniently configure state representation, action encoding, reward design, or even the game rules.</p></li>
+<li><p><strong>Scalable.</strong> New card environments can be added conveniently into the toolkit with the above design principles. We also try to minimize the dependencies in the toolkit so that the codes can be easily maintained.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rlcard-high-level-design">
+<h2>RLCard High-level Design<a class="headerlink" href="#rlcard-high-level-design" title="Permalink to this heading">¶</a></h2>
+<p>This document introduces the high-level design for the environments, the
+games, and the agents (algorithms).</p>
+<section id="environments">
+<h3>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">¶</a></h3>
+<p>We wrap each game with an <code class="docutils literal notranslate"><span class="pre">Env</span></code> class. The responsibility of <code class="docutils literal notranslate"><span class="pre">Env</span></code>
+is to help you generate trajectories of the games. For developing
+Reinforcement Learning (RL) algorithms, we recommend to use the
+following interfaces:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set_agents</span></code>: This function tells the <code class="docutils literal notranslate"><span class="pre">Env</span></code> what agents will be
+used to perform actions in the game. Different games may have a
+different number of agents. The input of the function is a list of
+<code class="docutils literal notranslate"><span class="pre">Agent</span></code> class. For example,
+<code class="docutils literal notranslate"><span class="pre">env.set_agent([RandomAgent(),</span> <span class="pre">RandomAgent()])</span></code> indicates that two
+random agents will be used to generate the trajectories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run</span></code>: After setting the agents, this interface will run a complete
+trajectory of the game, calculate the reward for each transition, and
+reorganize the data so that it can be directly fed into a RL
+algorithm.</p></li>
+</ul>
+<p>For advanced access to the environment, such as traversal of the game
+tree, we provide the following interfaces:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code>: Given the current state, the environment takes one step
+forward, and returns the next state and the next player.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step_back</span></code>: Takes one step backward. The environment will restore
+to the last state. The <code class="docutils literal notranslate"><span class="pre">step_back</span></code> is defaultly turned off since it
+requires expensively recoeding previous states. To turn it on, set
+<code class="docutils literal notranslate"><span class="pre">allow_step_back</span> <span class="pre">=</span> <span class="pre">True</span></code> when <code class="docutils literal notranslate"><span class="pre">make</span></code> environments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_payoffs</span></code>: At the end of the game, this function can be called
+to obtain the payoffs for each player.</p></li>
+</ul>
+<p>We also support single-agent mode and human mode. Examples can be found
+in <code class="docutils literal notranslate"><span class="pre">examples/</span></code>.</p>
+<ul class="simple">
+<li><p>Single agent mode: single-agent environments are developped by
+simulating other players with pre-trained models or rule-based
+models. You can enable single-agent mode by
+<code class="docutils literal notranslate"><span class="pre">rlcard.make(ENV_ID,</span> <span class="pre">config={'single_agent_mode':True})</span></code>. Then the
+<code class="docutils literal notranslate"><span class="pre">step</span></code> function will return <code class="docutils literal notranslate"><span class="pre">(next_state,</span> <span class="pre">reward,</span> <span class="pre">done)</span></code> just as
+common single-agent environments. <code class="docutils literal notranslate"><span class="pre">env.reset()</span></code> will reset the game
+and return the first state.</p></li>
+</ul>
+</section>
+<section id="games">
+<h3>Games<a class="headerlink" href="#games" title="Permalink to this heading">¶</a></h3>
+<p>Card games usually have similar structures. We abstract some concepts in
+card games and follow the same design pattern. In this way,
+users/developers can easily dig into the code and change the rules for
+research purpose. Specifically, the following classes are used in all
+the games:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Game</span></code>: A game is defined as a complete sequence starting from one
+of the non-terminal states to a terminal state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Round</span></code>: A round is a part of the sequence of a game. Most card
+games can be naturally divided into multiple rounds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dealer</span></code>: A dealer is responsible for shuffling and allocating a
+deck of cards.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Judger</span></code>: A judger is responsible for making major decisions at the
+end of a round or a game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Player</span></code>: A player is a role who plays cards following a strategy.</p></li>
+</ul>
+<p>To summarize, in one <code class="docutils literal notranslate"><span class="pre">Game</span></code>, a <code class="docutils literal notranslate"><span class="pre">Dealer</span></code> deals the cards for each
+<code class="docutils literal notranslate"><span class="pre">Player</span></code>. In each <code class="docutils literal notranslate"><span class="pre">Round</span></code> of the game, a <code class="docutils literal notranslate"><span class="pre">Judger</span></code> will make major
+decisions about the next round and the payoffs in the end of the game.</p>
+</section>
+<section id="agents">
+<h3>Agents<a class="headerlink" href="#agents" title="Permalink to this heading">¶</a></h3>
+<p>We provide examples of several representative algorithms and wrap them
+as <code class="docutils literal notranslate"><span class="pre">Agent</span></code> to show how a learning algorithm can be connected to the
+toolkit. The first example is DQN which is a representative of the
+Reinforcement Learning (RL) algorithms category. The second example is
+NFSP which is a representative of the Reinforcement Learning (RL) with
+self-play. We also provide CFR and DeepCFR which belong to Conterfactual
+Regret Minimization (CFR) category. Other algorithms from these three
+categories can be connected in similar ways.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="doctree.html" class="btn btn-neutral float-left" title="Indices and tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

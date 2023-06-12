@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rlcard.agents &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rlcard.models" href="rlcard.models.html" />
+    <link rel="prev" title="rlcard.games.bridge" href="rlcard.games.bridge.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.games.html">rlcard.games</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">rlcard.agents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.cfr_agent">rlcard.agents.cfr_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent"><code class="docutils literal notranslate"><span class="pre">CFRAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.action_probs"><code class="docutils literal notranslate"><span class="pre">CFRAgent.action_probs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">CFRAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.get_state"><code class="docutils literal notranslate"><span class="pre">CFRAgent.get_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.load"><code class="docutils literal notranslate"><span class="pre">CFRAgent.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.regret_matching"><code class="docutils literal notranslate"><span class="pre">CFRAgent.regret_matching()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.save"><code class="docutils literal notranslate"><span class="pre">CFRAgent.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.train"><code class="docutils literal notranslate"><span class="pre">CFRAgent.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.traverse_tree"><code class="docutils literal notranslate"><span class="pre">CFRAgent.traverse_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.cfr_agent.CFRAgent.update_policy"><code class="docutils literal notranslate"><span class="pre">CFRAgent.update_policy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dqn_agent">rlcard.agents.dqn_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent"><code class="docutils literal notranslate"><span class="pre">DQNAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">DQNAgent.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">DQNAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.feed"><code class="docutils literal notranslate"><span class="pre">DQNAgent.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.feed_memory"><code class="docutils literal notranslate"><span class="pre">DQNAgent.feed_memory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">DQNAgent.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.predict"><code class="docutils literal notranslate"><span class="pre">DQNAgent.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">DQNAgent.save_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.set_device"><code class="docutils literal notranslate"><span class="pre">DQNAgent.set_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.step"><code class="docutils literal notranslate"><span class="pre">DQNAgent.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent.train"><code class="docutils literal notranslate"><span class="pre">DQNAgent.train()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dqn_agent.Estimator"><code class="docutils literal notranslate"><span class="pre">Estimator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Estimator.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">Estimator.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Estimator.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">Estimator.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Estimator.predict_nograd"><code class="docutils literal notranslate"><span class="pre">Estimator.predict_nograd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Estimator.update"><code class="docutils literal notranslate"><span class="pre">Estimator.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dqn_agent.EstimatorNetwork"><code class="docutils literal notranslate"><span class="pre">EstimatorNetwork</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.EstimatorNetwork.forward"><code class="docutils literal notranslate"><span class="pre">EstimatorNetwork.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dqn_agent.Memory"><code class="docutils literal notranslate"><span class="pre">Memory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Memory.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">Memory.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Memory.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">Memory.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Memory.sample"><code class="docutils literal notranslate"><span class="pre">Memory.sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Memory.save"><code class="docutils literal notranslate"><span class="pre">Memory.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition"><code class="docutils literal notranslate"><span class="pre">Transition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition.action"><code class="docutils literal notranslate"><span class="pre">Transition.action</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition.done"><code class="docutils literal notranslate"><span class="pre">Transition.done</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition.legal_actions"><code class="docutils literal notranslate"><span class="pre">Transition.legal_actions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition.next_state"><code class="docutils literal notranslate"><span class="pre">Transition.next_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition.reward"><code class="docutils literal notranslate"><span class="pre">Transition.reward</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dqn_agent.Transition.state"><code class="docutils literal notranslate"><span class="pre">Transition.state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.nfsp_agent">rlcard.agents.nfsp_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork.forward"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">AveragePolicyNetwork.from_checkpoint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent"><code class="docutils literal notranslate"><span class="pre">NFSPAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.feed"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.sample_episode_policy"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.sample_episode_policy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.save_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.set_device"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.set_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.step"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent.train_sl"><code class="docutils literal notranslate"><span class="pre">NFSPAgent.train_sl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.nfsp_agent.ReservoirBuffer"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.add"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.checkpoint_attributes"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.checkpoint_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.clear"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.from_checkpoint"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.from_checkpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.sample"><code class="docutils literal notranslate"><span class="pre">ReservoirBuffer.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.nfsp_agent.Transition"><code class="docutils literal notranslate"><span class="pre">Transition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.Transition.action_probs"><code class="docutils literal notranslate"><span class="pre">Transition.action_probs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.nfsp_agent.Transition.info_state"><code class="docutils literal notranslate"><span class="pre">Transition.info_state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.pettingzoo_agents">rlcard.agents.pettingzoo_agents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.feed"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">DQNAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.feed"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">NFSPAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">RandomAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">RandomAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">RandomAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.random_agent">rlcard.agents.random_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.random_agent.RandomAgent"><code class="docutils literal notranslate"><span class="pre">RandomAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.random_agent.RandomAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">RandomAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.random_agent.RandomAgent.step"><code class="docutils literal notranslate"><span class="pre">RandomAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dmc_agent.file_writer">rlcard.agents.dmc_agent.file_writer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.file_writer.FileWriter"><code class="docutils literal notranslate"><span class="pre">FileWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.file_writer.FileWriter.close"><code class="docutils literal notranslate"><span class="pre">FileWriter.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.file_writer.FileWriter.log"><code class="docutils literal notranslate"><span class="pre">FileWriter.log()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.file_writer.gather_metadata"><code class="docutils literal notranslate"><span class="pre">gather_metadata()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dmc_agent.model">rlcard.agents.dmc_agent.model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent"><code class="docutils literal notranslate"><span class="pre">DMCAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.eval"><code class="docutils literal notranslate"><span class="pre">DMCAgent.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">DMCAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.forward"><code class="docutils literal notranslate"><span class="pre">DMCAgent.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.load_state_dict"><code class="docutils literal notranslate"><span class="pre">DMCAgent.load_state_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.parameters"><code class="docutils literal notranslate"><span class="pre">DMCAgent.parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.predict"><code class="docutils literal notranslate"><span class="pre">DMCAgent.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.set_device"><code class="docutils literal notranslate"><span class="pre">DMCAgent.set_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.share_memory"><code class="docutils literal notranslate"><span class="pre">DMCAgent.share_memory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.state_dict"><code class="docutils literal notranslate"><span class="pre">DMCAgent.state_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent.step"><code class="docutils literal notranslate"><span class="pre">DMCAgent.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCModel"><code class="docutils literal notranslate"><span class="pre">DMCModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCModel.eval"><code class="docutils literal notranslate"><span class="pre">DMCModel.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCModel.get_agent"><code class="docutils literal notranslate"><span class="pre">DMCModel.get_agent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCModel.get_agents"><code class="docutils literal notranslate"><span class="pre">DMCModel.get_agents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCModel.parameters"><code class="docutils literal notranslate"><span class="pre">DMCModel.parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCModel.share_memory"><code class="docutils literal notranslate"><span class="pre">DMCModel.share_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCNet"><code class="docutils literal notranslate"><span class="pre">DMCNet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCNet.forward"><code class="docutils literal notranslate"><span class="pre">DMCNet.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dmc_agent.pettingzoo_model">rlcard.agents.dmc_agent.pettingzoo_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.eval_step"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.feed"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo.feed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.step"><code class="docutils literal notranslate"><span class="pre">DMCAgentPettingZoo.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.eval"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agent"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.get_agent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agents"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.get_agents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.parameters"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.share_memory"><code class="docutils literal notranslate"><span class="pre">DMCModelPettingZoo.share_memory()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dmc_agent.pettingzoo_utils">rlcard.agents.dmc_agent.pettingzoo_utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_utils.act_pettingzoo"><code class="docutils literal notranslate"><span class="pre">act_pettingzoo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.pettingzoo_utils.create_buffers_pettingzoo"><code class="docutils literal notranslate"><span class="pre">create_buffers_pettingzoo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dmc_agent.trainer">rlcard.agents.dmc_agent.trainer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.trainer.DMCTrainer"><code class="docutils literal notranslate"><span class="pre">DMCTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.dmc_agent.trainer.DMCTrainer.start"><code class="docutils literal notranslate"><span class="pre">DMCTrainer.start()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.trainer.compute_loss"><code class="docutils literal notranslate"><span class="pre">compute_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.trainer.learn"><code class="docutils literal notranslate"><span class="pre">learn()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.dmc_agent.utils">rlcard.agents.dmc_agent.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.utils.act"><code class="docutils literal notranslate"><span class="pre">act()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.utils.create_buffers"><code class="docutils literal notranslate"><span class="pre">create_buffers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.utils.create_optimizers"><code class="docutils literal notranslate"><span class="pre">create_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.dmc_agent.utils.get_batch"><code class="docutils literal notranslate"><span class="pre">get_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.human_agents.blackjack_human_agent">rlcard.agents.human_agents.blackjack_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.human_agents.leduc_holdem_human_agent">rlcard.agents.human_agents.leduc_holdem_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.human_agents.limit_holdem_human_agent">rlcard.agents.human_agents.limit_holdem_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.human_agents.nolimit_holdem_human_agent">rlcard.agents.human_agents.nolimit_holdem_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rlcard.agents.human_agents.uno_human_agent">rlcard.agents.human_agents.uno_human_agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rlcard.agents.human_agents.uno_human_agent.HumanAgent"><code class="docutils literal notranslate"><span class="pre">HumanAgent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.uno_human_agent.HumanAgent.eval_step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.eval_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.agents.human_agents.uno_human_agent.HumanAgent.step"><code class="docutils literal notranslate"><span class="pre">HumanAgent.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rlcard-agents">
+<h1>rlcard.agents<a class="headerlink" href="#rlcard-agents" title="Permalink to this heading">¶</a></h1>
+<section id="module-rlcard.agents.cfr_agent">
+<span id="rlcard-agents-cfr-agent"></span><h2>rlcard.agents.cfr_agent<a class="headerlink" href="#module-rlcard.agents.cfr_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.cfr_agent.</span></span><span class="sig-name descname"><span class="pre">CFRAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./cfr_model'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Implement CFR (chance sampling) algorithm</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.action_probs">
+<span class="sig-name descname"><span class="pre">action_probs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legal_actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.action_probs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the action probabilities of the current state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obs</strong> (<em>str</em>) – state_str</p></li>
+<li><p><strong>legal_actions</strong> (<em>list</em>) – List of leagel actions</p></li>
+<li><p><strong>player_id</strong> (<em>int</em>) – The current player</p></li>
+<li><p><strong>policy</strong> (<em>dict</em>) – The used policy</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>action_probs(numpy.array): The action probabilities
+legal_actions (list): Indices of legal actions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(tuple) that contains</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a state, predict action based on average policy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – State representation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Predicted action
+info (dict): A dictionary containing information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get state_str of the player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>player_id</strong> (<em>int</em>) – The player id</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>state (str): The state str
+legal_actions (list): Indices of legal actions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(tuple) that contains</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.regret_matching">
+<span class="sig-name descname"><span class="pre">regret_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.regret_matching" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply regret matching</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obs</strong> (<em>string</em>) – The state_str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do one iteration of CFR</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.traverse_tree">
+<span class="sig-name descname"><span class="pre">traverse_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.traverse_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traverse the game tree, update the regrets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>probs</strong> – The reach probability of the current node</p></li>
+<li><p><strong>player_id</strong> – The player to update the value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The expected utilities for all the players</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state_utilities (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.cfr_agent.CFRAgent.update_policy">
+<span class="sig-name descname"><span class="pre">update_policy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.cfr_agent.CFRAgent.update_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update policy based on the current regrets</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dqn_agent">
+<span id="rlcard-agents-dqn-agent"></span><h2>rlcard.agents.dqn_agent<a class="headerlink" href="#module-rlcard.agents.dqn_agent" title="Permalink to this heading">¶</a></h2>
+<p>DQN agent</p>
+<p>The code is derived from <a class="reference external" href="https://github.com/dennybritz/reinforcement-learning/blob/master/DQN/dqn.py">https://github.com/dennybritz/reinforcement-learning/blob/master/DQN/dqn.py</a></p>
+<p>Copyright (c) 2019 Matthew Judell
+Copyright (c) 2019 DATA Lab at Texas A&amp;M University
+Copyright (c) 2016 Denny Britz</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dqn_agent.</span></span><span class="sig-name descname"><span class="pre">DQNAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replay_memory_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replay_memory_init_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_target_estimator_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_decay_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Approximate clone of rlcard.agents.dqn_agent.DQNAgent
+that depends on PyTorch instead of Tensorflow</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.checkpoint_attributes">
+<span class="sig-name descname"><span class="pre">checkpoint_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.checkpoint_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current checkpoint attributes (dict)
+Checkpoint attributes are used to save and restore the model in the middle of training
+Saves the model state dict, optimizer state dict, and all other instance variables</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action for evaluation purpose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an action id
+info (dict): A dictionary containing information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.feed">
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.feed" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Store data in to replay buffer and train the agent. There are two stages.</dt><dd><p>In stage 1, populate the memory without training
+In stage 2, train the agent every several timesteps</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ts</strong> (<em>list</em>) – a list of 5 elements that represent the transition</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.feed_memory">
+<span class="sig-name descname"><span class="pre">feed_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legal_actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.feed_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feed transition to memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>numpy.array</em>) – the current state</p></li>
+<li><p><strong>action</strong> (<em>int</em>) – the performed action ID</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – the reward received</p></li>
+<li><p><strong>next_state</strong> (<em>numpy.array</em>) – the next state after performing the action</p></li>
+<li><p><strong>legal_actions</strong> (<em>list</em>) – the legal actions of the next state</p></li>
+<li><p><strong>done</strong> (<em>boolean</em>) – whether the episode is finished</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.from_checkpoint">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the model from a checkpoint</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>checkpoint</strong> (<em>dict</em>) – the checkpoint attributes generated by checkpoint_attributes()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the masked Q-values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a 1-d array where each entry represents a Q value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>q_values (numpy.array)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.save_checkpoint">
+<span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint_dqn.pt'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.save_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model checkpoint (all attributes)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – the path to save the model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.set_device">
+<span class="sig-name descname"><span class="pre">set_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.set_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Predict the action for genrating training data but</dt><dd><p>have the predictions disconnected from the computation graph</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an action id</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.DQNAgent.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.DQNAgent.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The loss of the current batch.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>loss (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Estimator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dqn_agent.</span></span><span class="sig-name descname"><span class="pre">Estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Estimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Approximate clone of rlcard.agents.dqn_agent.Estimator that
+uses PyTorch instead of Tensorflow.  All methods input/output np.ndarray.</p>
+<p>Q-Value Estimator neural network.
+This network is used for both the Q-Network and the Target Network.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Estimator.checkpoint_attributes">
+<span class="sig-name descname"><span class="pre">checkpoint_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Estimator.checkpoint_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attributes needed to restore the model from a checkpoint</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Estimator.from_checkpoint">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Estimator.from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the model from a checkpoint</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Estimator.predict_nograd">
+<span class="sig-name descname"><span class="pre">predict_nograd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Estimator.predict_nograd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Predicts action values, but prediction is not included</dt><dd><p>in the computation graph.  It is used to predict optimal next
+actions in the Double-DQN algorithm.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>np.ndarray</em>) – (batch, state_len)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray of shape (batch_size, NUM_VALID_ACTIONS) containing the estimated
+action values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Estimator.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Estimator.update" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Updates the estimator towards the given targets.</dt><dd><p>In this case y is the target-network estimated
+value of the Q-network optimal actions, which
+is labeled y in Algorithm 1 of Minh et al. (2015)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>np.ndarray</em>) – (batch, state_shape) state representation</p></li>
+<li><p><strong>a</strong> (<em>np.ndarray</em>) – (batch,) integer sampled actions</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – (batch,) value of optimal actions according to Q-target</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The calculated loss on the batch.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.EstimatorNetwork">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dqn_agent.</span></span><span class="sig-name descname"><span class="pre">EstimatorNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.EstimatorNetwork" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>The function approximation network for Estimator
+It is just a series of tanh layers. All in/out are torch.tensor</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.EstimatorNetwork.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.EstimatorNetwork.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict action values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>Tensor</em>) – (batch, state_shape)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Memory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dqn_agent.</span></span><span class="sig-name descname"><span class="pre">Memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">memory_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Memory for saving transitions</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Memory.checkpoint_attributes">
+<span class="sig-name descname"><span class="pre">checkpoint_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Memory.checkpoint_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the attributes that need to be checkpointed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Memory.from_checkpoint">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Memory.from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restores the attributes from the checkpoint</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>checkpoint</strong> (<em>dict</em>) – the checkpoint dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the restored instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance (<a class="reference internal" href="#rlcard.agents.dqn_agent.Memory" title="rlcard.agents.dqn_agent.Memory">Memory</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Memory.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Memory.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample a minibatch from the replay memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a batch of states
+action_batch (list): a batch of actions
+reward_batch (list): a batch of rewards
+next_state_batch (list): a batch of states
+done_batch (list): a batch of dones</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>state_batch (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Memory.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legal_actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Memory.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save transition into memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>numpy.array</em>) – the current state</p></li>
+<li><p><strong>action</strong> (<em>int</em>) – the performed action ID</p></li>
+<li><p><strong>reward</strong> (<em>float</em>) – the reward received</p></li>
+<li><p><strong>next_state</strong> (<em>numpy.array</em>) – the next state after performing the action</p></li>
+<li><p><strong>legal_actions</strong> (<em>list</em>) – the legal actions of the next state</p></li>
+<li><p><strong>done</strong> (<em>boolean</em>) – whether the episode is finished</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dqn_agent.</span></span><span class="sig-name descname"><span class="pre">Transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legal_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition.action">
+<span class="sig-name descname"><span class="pre">action</span></span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition.done">
+<span class="sig-name descname"><span class="pre">done</span></span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition.legal_actions">
+<span class="sig-name descname"><span class="pre">legal_actions</span></span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition.legal_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition.next_state">
+<span class="sig-name descname"><span class="pre">next_state</span></span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition.next_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition.reward">
+<span class="sig-name descname"><span class="pre">reward</span></span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition.reward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.dqn_agent.Transition.state">
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#rlcard.agents.dqn_agent.Transition.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.nfsp_agent">
+<span id="rlcard-agents-nfsp-agent"></span><h2>rlcard.agents.nfsp_agent<a class="headerlink" href="#module-rlcard.agents.nfsp_agent" title="Permalink to this heading">¶</a></h2>
+<p>Neural Fictitious Self-Play (NFSP) agent implemented in TensorFlow.</p>
+<p>See the paper <a class="reference external" href="https://arxiv.org/abs/1603.01121">https://arxiv.org/abs/1603.01121</a> for more details.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.AveragePolicyNetwork">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.nfsp_agent.</span></span><span class="sig-name descname"><span class="pre">AveragePolicyNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Approximates the history of action probabilities
+given state (average policy). Forward pass returns
+log probabilities of actions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.AveragePolicyNetwork.checkpoint_attributes">
+<span class="sig-name descname"><span class="pre">checkpoint_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork.checkpoint_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current checkpoint attributes (dict)
+Checkpoint attributes are used to save and restore the model in the middle of training</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.AveragePolicyNetwork.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log action probabilities of each action from state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>Tensor</em>) – (batch, state_shape) state tensor</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(batch, num_actions)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>log_action_probs (Tensor)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.AveragePolicyNetwork.from_checkpoint">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.AveragePolicyNetwork.from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the model from a checkpoint</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>checkpoint</strong> (<em>dict</em>) – the checkpoint attributes generated by checkpoint_attributes()</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.nfsp_agent.</span></span><span class="sig-name descname"><span class="pre">NFSPAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_layers_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reservoir_buffer_capacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anticipatory_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rl_learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_buffer_size_to_learn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_replay_memory_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_replay_memory_init_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_update_target_estimator_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_discount_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_epsilon_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_epsilon_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_epsilon_decay_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_train_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_with</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'average_policy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An approximate clone of rlcard.agents.nfsp_agent that uses
+pytorch instead of tensorflow.  Note that this implementation
+differs from Henrich and Silver (2016) in that the supervised
+training minimizes cross-entropy with respect to the stored
+action probabilities rather than the realized actions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.checkpoint_attributes">
+<span class="sig-name descname"><span class="pre">checkpoint_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.checkpoint_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current checkpoint attributes (dict)
+Checkpoint attributes are used to save and restore the model in the middle of training
+Saves the model state dict, optimizer state dict, and all other instance variables</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the average policy for evaluation purpose</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – The current state.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An action id.
+info (dict): A dictionary containing information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.feed">
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.feed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feed data to inner RL agent</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ts</strong> (<em>list</em>) – A list of 5 elements that represent the transition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.from_checkpoint">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the model from a checkpoint</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>checkpoint</strong> (<em>dict</em>) – the checkpoint attributes generated by checkpoint_attributes()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.sample_episode_policy">
+<span class="sig-name descname"><span class="pre">sample_episode_policy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.sample_episode_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample average/best_response policy</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.save_checkpoint">
+<span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint_nfsp.pt'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.save_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model checkpoint (all attributes)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – the path to save the model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.set_device">
+<span class="sig-name descname"><span class="pre">set_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.set_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the action to be taken.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – The current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An action id</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.NFSPAgent.train_sl">
+<span class="sig-name descname"><span class="pre">train_sl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.NFSPAgent.train_sl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the loss on sampled transitions and perform a avg-network update.</p>
+<p>If there are not enough elements in the buffer, no loss is computed and
+<cite>None</cite> is returned instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The average loss obtained on this batch of transitions or <cite>None</cite>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>loss (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.ReservoirBuffer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.nfsp_agent.</span></span><span class="sig-name descname"><span class="pre">ReservoirBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reservoir_buffer_capacity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.ReservoirBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Allows uniform sampling over a stream of data.</p>
+<p>This class supports the storage of arbitrary elements, such as observation
+tensors, integer actions, etc.</p>
+<p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Reservoir_sampling">https://en.wikipedia.org/wiki/Reservoir_sampling</a> for more details.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.ReservoirBuffer.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Potentially adds <cite>element</cite> to the reservoir buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<em>object</em>) – data to be added to the reservoir buffer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.ReservoirBuffer.checkpoint_attributes">
+<span class="sig-name descname"><span class="pre">checkpoint_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.checkpoint_attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.ReservoirBuffer.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the buffer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.ReservoirBuffer.from_checkpoint">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.ReservoirBuffer.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.ReservoirBuffer.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <cite>num_samples</cite> uniformly sampled from the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_samples</strong> (<em>int</em>) – The number of samples to draw.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An iterable over <cite>num_samples</cite> random elements of the buffer.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If there are less than <cite>num_samples</cite> elements in the buffer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.Transition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.nfsp_agent.</span></span><span class="sig-name descname"><span class="pre">Transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_probs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.nfsp_agent.Transition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.Transition.action_probs">
+<span class="sig-name descname"><span class="pre">action_probs</span></span><a class="headerlink" href="#rlcard.agents.nfsp_agent.Transition.action_probs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.agents.nfsp_agent.Transition.info_state">
+<span class="sig-name descname"><span class="pre">info_state</span></span><a class="headerlink" href="#rlcard.agents.nfsp_agent.Transition.info_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.pettingzoo_agents">
+<span id="rlcard-agents-pettingzoo-agents"></span><h2>rlcard.agents.pettingzoo_agents<a class="headerlink" href="#module-rlcard.agents.pettingzoo_agents" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.pettingzoo_agents.</span></span><span class="sig-name descname"><span class="pre">DQNAgentPettingZoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replay_memory_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replay_memory_init_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_target_estimator_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_decay_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rlcard.agents.dqn_agent.DQNAgent" title="rlcard.agents.dqn_agent.DQNAgent"><code class="xref py py-class docutils literal notranslate"><span class="pre">DQNAgent</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action for evaluation purpose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an action id
+info (dict): A dictionary containing information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.feed">
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.feed" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Store data in to replay buffer and train the agent. There are two stages.</dt><dd><p>In stage 1, populate the memory without training
+In stage 2, train the agent every several timesteps</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ts</strong> (<em>list</em>) – a list of 5 elements that represent the transition</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.DQNAgentPettingZoo.step" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Predict the action for genrating training data but</dt><dd><p>have the predictions disconnected from the computation graph</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an action id</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.pettingzoo_agents.</span></span><span class="sig-name descname"><span class="pre">NFSPAgentPettingZoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_layers_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reservoir_buffer_capacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anticipatory_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rl_learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_buffer_size_to_learn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_replay_memory_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_replay_memory_init_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_update_target_estimator_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_discount_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_epsilon_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_epsilon_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_epsilon_decay_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_train_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_with</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'average_policy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rlcard.agents.nfsp_agent.NFSPAgent" title="rlcard.agents.nfsp_agent.NFSPAgent"><code class="xref py py-class docutils literal notranslate"><span class="pre">NFSPAgent</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the average policy for evaluation purpose</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – The current state.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An action id.
+info (dict): A dictionary containing information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.feed">
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.feed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feed data to inner RL agent</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ts</strong> (<em>list</em>) – A list of 5 elements that represent the transition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.NFSPAgentPettingZoo.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the action to be taken.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – The current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An action id</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.pettingzoo_agents.</span></span><span class="sig-name descname"><span class="pre">RandomAgentPettingZoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rlcard.agents.random_agent.RandomAgent" title="rlcard.agents.random_agent.RandomAgent"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomAgent</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Predict the action given the current state for evaluation.</dt><dd><p>Since the random agents are not trained. This function is equivalent to step function</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – An dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action predicted (randomly chosen) by the random agent
+probs (list): The list of action probabilities</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.pettingzoo_agents.RandomAgentPettingZoo.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the curent state in gerenerating training data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – An dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.random_agent">
+<span id="rlcard-agents-random-agent"></span><h2>rlcard.agents.random_agent<a class="headerlink" href="#module-rlcard.agents.random_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.random_agent.RandomAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.random_agent.</span></span><span class="sig-name descname"><span class="pre">RandomAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.random_agent.RandomAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A random agent. Random agents is for running toy examples on the card games</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.random_agent.RandomAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.random_agent.RandomAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Predict the action given the current state for evaluation.</dt><dd><p>Since the random agents are not trained. This function is equivalent to step function</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – An dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action predicted (randomly chosen) by the random agent
+probs (list): The list of action probabilities</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.random_agent.RandomAgent.step">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.random_agent.RandomAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the curent state in gerenerating training data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – An dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dmc_agent.file_writer">
+<span id="rlcard-agents-dmc-agent-file-writer"></span><h2>rlcard.agents.dmc_agent.file_writer<a class="headerlink" href="#module-rlcard.agents.dmc_agent.file_writer" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.file_writer.FileWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.file_writer.</span></span><span class="sig-name descname"><span class="pre">FileWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xp_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'~/palaas'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.file_writer.FileWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.file_writer.FileWriter.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">successful</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#rlcard.agents.dmc_agent.file_writer.FileWriter.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.file_writer.FileWriter.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#rlcard.agents.dmc_agent.file_writer.FileWriter.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.file_writer.gather_metadata">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.file_writer.</span></span><span class="sig-name descname"><span class="pre">gather_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#rlcard.agents.dmc_agent.file_writer.gather_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dmc_agent.model">
+<span id="rlcard-agents-dmc-agent-model"></span><h2>rlcard.agents.dmc_agent.model<a class="headerlink" href="#module-rlcard.agents.dmc_agent.model" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.model.</span></span><span class="sig-name descname"><span class="pre">DMCAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.eval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.load_state_dict">
+<span class="sig-name descname"><span class="pre">load_state_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.load_state_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.set_device">
+<span class="sig-name descname"><span class="pre">set_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.set_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.share_memory">
+<span class="sig-name descname"><span class="pre">share_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.share_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.state_dict">
+<span class="sig-name descname"><span class="pre">state_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.state_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCAgent.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.model.</span></span><span class="sig-name descname"><span class="pre">DMCModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCModel.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCModel.eval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCModel.get_agent">
+<span class="sig-name descname"><span class="pre">get_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCModel.get_agent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCModel.get_agents">
+<span class="sig-name descname"><span class="pre">get_agents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCModel.get_agents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCModel.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCModel.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCModel.share_memory">
+<span class="sig-name descname"><span class="pre">share_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCModel.share_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCNet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.model.</span></span><span class="sig-name descname"><span class="pre">DMCNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.model.DMCNet.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.model.DMCNet.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dmc_agent.pettingzoo_model">
+<span id="rlcard-agents-dmc-agent-pettingzoo-model"></span><h2>rlcard.agents.dmc_agent.pettingzoo_model<a class="headerlink" href="#module-rlcard.agents.dmc_agent.pettingzoo_model" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.pettingzoo_model.</span></span><span class="sig-name descname"><span class="pre">DMCAgentPettingZoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rlcard.agents.dmc_agent.model.DMCAgent" title="rlcard.agents.dmc_agent.model.DMCAgent"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMCAgent</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.feed">
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.feed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCAgentPettingZoo.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.pettingzoo_model.</span></span><span class="sig-name descname"><span class="pre">DMCModelPettingZoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512,</span> <span class="pre">512]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.eval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agent">
+<span class="sig-name descname"><span class="pre">get_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agents">
+<span class="sig-name descname"><span class="pre">get_agents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.get_agents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.share_memory">
+<span class="sig-name descname"><span class="pre">share_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_model.DMCModelPettingZoo.share_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dmc_agent.pettingzoo_utils">
+<span id="rlcard-agents-dmc-agent-pettingzoo-utils"></span><h2>rlcard.agents.dmc_agent.pettingzoo_utils<a class="headerlink" href="#module-rlcard.agents.dmc_agent.pettingzoo_utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_utils.act_pettingzoo">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.pettingzoo_utils.</span></span><span class="sig-name descname"><span class="pre">act_pettingzoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_utils.act_pettingzoo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.pettingzoo_utils.create_buffers_pettingzoo">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.pettingzoo_utils.</span></span><span class="sig-name descname"><span class="pre">create_buffers_pettingzoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_iterator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.pettingzoo_utils.create_buffers_pettingzoo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dmc_agent.trainer">
+<span id="rlcard-agents-dmc-agent-trainer"></span><h2>rlcard.agents.dmc_agent.trainer<a class="headerlink" href="#module-rlcard.agents.dmc_agent.trainer" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.trainer.DMCTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.trainer.</span></span><span class="sig-name descname"><span class="pre">DMCTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cuda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_pettingzoo_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xpid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dmc'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_actor_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_actors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savedir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'experiments/dmc_result'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unroll_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_buffers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_grad_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.trainer.DMCTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Deep Monte-Carlo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>env</strong> – RLCard environment</p></li>
+<li><p><strong>load_model</strong> (<em>boolean</em>) – Whether loading an existing model</p></li>
+<li><p><strong>xpid</strong> (<em>string</em>) – Experiment id (default: dmc)</p></li>
+<li><p><strong>save_interval</strong> (<em>int</em>) – Time interval (in minutes) at which to save the model</p></li>
+<li><p><strong>num_actor_devices</strong> (<em>int</em>) – The number devices used for simulation</p></li>
+<li><p><strong>num_actors</strong> (<em>int</em>) – Number of actors for each simulation device</p></li>
+<li><p><strong>training_device</strong> (<em>str</em>) – The index of the GPU used for training models, or <cite>cpu</cite>.</p></li>
+<li><p><strong>savedir</strong> (<em>string</em>) – Root dir where experiment data will be saved</p></li>
+<li><p><strong>total_frames</strong> (<em>int</em>) – Total environment frames to train for</p></li>
+<li><p><strong>exp_epsilon</strong> (<em>float</em>) – The prbability for exploration</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – Learner batch size</p></li>
+<li><p><strong>unroll_length</strong> (<em>int</em>) – The unroll length (time dimension)</p></li>
+<li><p><strong>num_buffers</strong> (<em>int</em>) – Number of shared-memory buffers</p></li>
+<li><p><strong>num_threads</strong> (<em>int</em>) – Number learner threads</p></li>
+<li><p><strong>max_grad_norm</strong> (<em>int</em>) – Max norm of gradients</p></li>
+<li><p><strong>learning_rate</strong> (<em>float</em>) – Learning rate</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – RMSProp smoothing constant</p></li>
+<li><p><strong>momentum</strong> (<em>float</em>) – RMSProp momentum</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em>) – RMSProp epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.trainer.DMCTrainer.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.trainer.DMCTrainer.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.trainer.compute_loss">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.trainer.</span></span><span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.trainer.compute_loss" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.trainer.learn">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.trainer.</span></span><span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_grad_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_episode_return_buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.trainer.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a learning (optimization) step.</p>
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.dmc_agent.utils">
+<span id="rlcard-agents-dmc-agent-utils"></span><h2>rlcard.agents.dmc_agent.utils<a class="headerlink" href="#module-rlcard.agents.dmc_agent.utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.utils.act">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.utils.</span></span><span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.utils.act" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.utils.create_buffers">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.utils.</span></span><span class="sig-name descname"><span class="pre">create_buffers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_iterator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.utils.create_buffers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.utils.create_optimizers">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.utils.</span></span><span class="sig-name descname"><span class="pre">create_optimizers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learner_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.utils.create_optimizers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.agents.dmc_agent.utils.get_batch">
+<span class="sig-prename descclassname"><span class="pre">rlcard.agents.dmc_agent.utils.</span></span><span class="sig-name descname"><span class="pre">get_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">free_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.dmc_agent.utils.get_batch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-rlcard.agents.human_agents.blackjack_human_agent">
+<span id="rlcard-agents-human-agents-blackjack-human-agent"></span><h2>rlcard.agents.human_agents.blackjack_human_agent<a class="headerlink" href="#module-rlcard.agents.human_agents.blackjack_human_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.blackjack_human_agent.HumanAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.human_agents.blackjack_human_agent.</span></span><span class="sig-name descname"><span class="pre">HumanAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A human agent for Blackjack. It can be used to play alone for understand how the blackjack code runs</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the current state for evaluation. The same to step here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – an numpy array that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.step">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.blackjack_human_agent.HumanAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human agent will display the state and make decisions through interfaces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – A dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action decided by human</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.human_agents.leduc_holdem_human_agent">
+<span id="rlcard-agents-human-agents-leduc-holdem-human-agent"></span><h2>rlcard.agents.human_agents.leduc_holdem_human_agent<a class="headerlink" href="#module-rlcard.agents.human_agents.leduc_holdem_human_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.human_agents.leduc_holdem_human_agent.</span></span><span class="sig-name descname"><span class="pre">HumanAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A human agent for Leduc Holdem. It can be used to play against trained models</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the curent state for evaluation. The same to step here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – an numpy array that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.step">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.leduc_holdem_human_agent.HumanAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human agent will display the state and make decisions through interfaces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – A dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action decided by human</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.human_agents.limit_holdem_human_agent">
+<span id="rlcard-agents-human-agents-limit-holdem-human-agent"></span><h2>rlcard.agents.human_agents.limit_holdem_human_agent<a class="headerlink" href="#module-rlcard.agents.human_agents.limit_holdem_human_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.human_agents.limit_holdem_human_agent.</span></span><span class="sig-name descname"><span class="pre">HumanAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A human agent for Limit Holdem. It can be used to play against trained models</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the curent state for evaluation. The same to step here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – an numpy array that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.step">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.limit_holdem_human_agent.HumanAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human agent will display the state and make decisions through interfaces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – A dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action decided by human</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.human_agents.nolimit_holdem_human_agent">
+<span id="rlcard-agents-human-agents-nolimit-holdem-human-agent"></span><h2>rlcard.agents.human_agents.nolimit_holdem_human_agent<a class="headerlink" href="#module-rlcard.agents.human_agents.nolimit_holdem_human_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.human_agents.nolimit_holdem_human_agent.</span></span><span class="sig-name descname"><span class="pre">HumanAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A human agent for No Limit Holdem. It can be used to play against trained models</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the curent state for evaluation. The same to step here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – an numpy array that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.step">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.nolimit_holdem_human_agent.HumanAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human agent will display the state and make decisions through interfaces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – A dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action decided by human</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.agents.human_agents.uno_human_agent">
+<span id="rlcard-agents-human-agents-uno-human-agent"></span><h2>rlcard.agents.human_agents.uno_human_agent<a class="headerlink" href="#module-rlcard.agents.human_agents.uno_human_agent" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.uno_human_agent.HumanAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.agents.human_agents.uno_human_agent.</span></span><span class="sig-name descname"><span class="pre">HumanAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.uno_human_agent.HumanAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A human agent for Leduc Holdem. It can be used to play against trained models</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.uno_human_agent.HumanAgent.eval_step">
+<span class="sig-name descname"><span class="pre">eval_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.uno_human_agent.HumanAgent.eval_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the action given the curent state for evaluation. The same to step here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>numpy.array</em>) – an numpy array that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the action predicted (randomly chosen) by the random agent</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.agents.human_agents.uno_human_agent.HumanAgent.step">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.agents.human_agents.uno_human_agent.HumanAgent.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human agent will display the state and make decisions through interfaces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – A dictionary that represents the current state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The action decided by human</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>action (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rlcard.games.bridge.html" class="btn btn-neutral float-left" title="rlcard.games.bridge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rlcard.models.html" class="btn btn-neutral float-right" title="rlcard.models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rlcard.games.mahjong &mdash; RLcard 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rlcard.games.gin_rummy" href="rlcard.games.gin_rummy.html" />
+    <link rel="prev" title="rlcard.games.uno" href="rlcard.games.uno.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_white.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">Games in RLCard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rlcard.envs.html">rlcard.envs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.utils.html">rlcard.utils</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="rlcard.games.html">rlcard.games</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.blackjack.html">rlcard.games.blackjack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.doudizhu.html">rlcard.games.doudizhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.limitholdem.html">rlcard.games.limitholdem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.nolimitholdem.html">rlcard.games.nolimitholdem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.leducholdem.html">rlcard.games.leducholdem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.uno.html">rlcard.games.uno</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rlcard.games.mahjong</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.dealer">rlcard.games.mahjong.dealer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.dealer.MahjongDealer"><code class="docutils literal notranslate"><span class="pre">MahjongDealer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.game">rlcard.games.mahjong.game</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.game.MahjongGame"><code class="docutils literal notranslate"><span class="pre">MahjongGame</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.judger">rlcard.games.mahjong.judger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.judger.MahjongJudger"><code class="docutils literal notranslate"><span class="pre">MahjongJudger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.player">rlcard.games.mahjong.player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.player.MahjongPlayer"><code class="docutils literal notranslate"><span class="pre">MahjongPlayer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.round">rlcard.games.mahjong.round</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.round.MahjongRound"><code class="docutils literal notranslate"><span class="pre">MahjongRound</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.card">rlcard.games.mahjong.card</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.card.MahjongCard"><code class="docutils literal notranslate"><span class="pre">MahjongCard</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rlcard.games.mahjong.utils">rlcard.games.mahjong.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.utils.cards2list"><code class="docutils literal notranslate"><span class="pre">cards2list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.utils.encode_cards"><code class="docutils literal notranslate"><span class="pre">encode_cards()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.utils.init_deck"><code class="docutils literal notranslate"><span class="pre">init_deck()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rlcard.games.mahjong.utils.pile2list"><code class="docutils literal notranslate"><span class="pre">pile2list()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.gin_rummy.html">rlcard.games.gin_rummy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rlcard.games.bridge.html">rlcard.games.bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.agents.html">rlcard.agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlcard.models.html">rlcard.models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="doctree.html">RLcard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; justify-content: space-between">
+  <div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="wy-breadcrumbs" style="margin-top: 0.3rem;">
+      
+        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          
+        <li>RLCard: A Toolkit for Reinforcement Learning in Card Games</li>
+      
+    </ul>
+
+    
+  </div>
+  <div style="display: block; width: 7.5rem; max-width: 7.5rem; padding-right: .6rem; float: right;">
+    <a href="https://github.com/datamllab/rlcard" title="Go to repository" data-md-source="github" data-md-state="done" style="display: block; padding-right: .6rem; line-height: 1.2">
+      <div style="display: inline-block; width: 2.4rem; height: 2.4rem;">
+        <i class="fa fa-github" style="font-size: 2rem"></i>  
+      </div>
+      <div style="display: inline-block; margin-left: -2rem; margin-top: -0.6rem; padding-left: 2rem; vertical-align: middle">
+        GitHub
+        <ul style="font-size: 0.7rem; list-style-type: none;"><li style="float: left" id="github-stars">... Stars</li></ul>
+      </div>
+      <script>
+        $(document).ready(function(){
+        $.ajax({ url: "https://api.github.com/repos/datamllab/rlcard",
+                context: document.body,
+                success: function(response){
+                  console.log(response.stargazers_count);
+                  $("#github-stars").html(response.stargazers_count + ' Stars');
+                }});
+        });
+      </script>
+    </a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rlcard-games-mahjong">
+<h1>rlcard.games.mahjong<a class="headerlink" href="#rlcard-games-mahjong" title="Permalink to this heading">¶</a></h1>
+<section id="module-rlcard.games.mahjong.dealer">
+<span id="rlcard-games-mahjong-dealer"></span><h2>rlcard.games.mahjong.dealer<a class="headerlink" href="#module-rlcard.games.mahjong.dealer" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.dealer.MahjongDealer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.dealer.</span></span><span class="sig-name descname"><span class="pre">MahjongDealer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.dealer.MahjongDealer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Initialize a mahjong dealer class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.dealer.MahjongDealer.deal_cards">
+<span class="sig-name descname"><span class="pre">deal_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.dealer.MahjongDealer.deal_cards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deal some cards from deck to one player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> (<em>object</em>) – The object of DoudizhuPlayer</p></li>
+<li><p><strong>num</strong> (<em>int</em>) – The number of cards to be dealed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.dealer.MahjongDealer.shuffle">
+<span class="sig-name descname"><span class="pre">shuffle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.dealer.MahjongDealer.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle the deck</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.mahjong.game">
+<span id="rlcard-games-mahjong-game"></span><h2>rlcard.games.mahjong.game<a class="headerlink" href="#module-rlcard.games.mahjong.game" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.game.</span></span><span class="sig-name descname"><span class="pre">MahjongGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allow_step_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.get_legal_actions">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_legal_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.get_legal_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the legal actions for current player</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of legal actions</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.get_num_actions">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_num_actions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.get_num_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of applicable actions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of actions. There are 4 actions (call, raise, check and fold)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.get_num_players">
+<span class="sig-name descname"><span class="pre">get_num_players</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.get_num_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the number of players in Mahjong</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the number of players in the game</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.get_player_id">
+<span class="sig-name descname"><span class="pre">get_player_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.get_player_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the id of current player in Mahjong</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the number of players in the game</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return player’s state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>player_id</strong> (<em>int</em>) – player id</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The state of the player</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.init_game">
+<span class="sig-name descname"><span class="pre">init_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.init_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialilze the game of Mahjong</p>
+<p>This version supports two-player Mahjong</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Tuple containing:</p>
+<blockquote>
+<div><p>(dict): The first state of the game
+(int): Current player’s id</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(tuple)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.is_over">
+<span class="sig-name descname"><span class="pre">is_over</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.is_over" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the game is over</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the game is over</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(boolean)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> (<em>str</em>) – a specific action. (call, raise, fold, or check)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<blockquote>
+<div><p>(dict): next player’s state
+(int): next plater’s id</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(tuple)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.game.MahjongGame.step_back">
+<span class="sig-name descname"><span class="pre">step_back</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.game.MahjongGame.step_back" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return to the previous state of the game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the game steps back successfully</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.mahjong.judger">
+<span id="rlcard-games-mahjong-judger"></span><h2>rlcard.games.mahjong.judger<a class="headerlink" href="#module-rlcard.games.mahjong.judger" title="Permalink to this heading">¶</a></h2>
+<p>Implement Mahjong Judger class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.judger.</span></span><span class="sig-name descname"><span class="pre">MahjongJudger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Determine what cards a player can play</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger.cal_set">
+<span class="sig-name descname"><span class="pre">cal_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger.cal_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the set for given cards
+:param Cards: List of cards.
+:type Cards: list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sets (list): List of cards that has been pop from user’s hand</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Set_count (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger.check_consecutive">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_consecutive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger.check_consecutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if list is consecutive
+:param _list: The target list
+:type _list: list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>consecutive or not</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result (bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger.judge_chow">
+<span class="sig-name descname"><span class="pre">judge_chow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger.judge_chow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Judge which player has chow
+:param dealer: The dealer object.
+:type dealer: object
+:param players: List of all players
+:type players: list
+:param last_player: The player id of last player
+:type last_player: int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger.judge_game">
+<span class="sig-name descname"><span class="pre">judge_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger.judge_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Judge which player has win the game
+:param dealer: The dealer object.
+:type dealer: object
+:param players: List of all players
+:type players: list
+:param last_player: The player id of last player
+:type last_player: int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger.judge_hu">
+<span class="sig-name descname"><span class="pre">judge_hu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger.judge_hu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Judge whether the player has win the game
+:param player: Target player
+:type player: object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Win or not
+Maximum_score (int): Set count score of the player</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result (bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.judger.MahjongJudger.judge_pong_gong">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">judge_pong_gong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.judger.MahjongJudger.judge_pong_gong" title="Permalink to this definition">¶</a></dt>
+<dd><p>Judge which player has pong/gong
+:param dealer: The dealer object.
+:type dealer: object
+:param players: List of all players
+:type players: list
+:param last_player: The player id of last player
+:type last_player: int</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.mahjong.player">
+<span id="rlcard-games-mahjong-player"></span><h2>rlcard.games.mahjong.player<a class="headerlink" href="#module-rlcard.games.mahjong.player" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.player.</span></span><span class="sig-name descname"><span class="pre">MahjongPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.chow">
+<span class="sig-name descname"><span class="pre">chow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.chow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform Chow
+:param dealer: Dealer
+:type dealer: object
+:param Cards: The cards to be Chow.
+:type Cards: object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.get_player_id">
+<span class="sig-name descname"><span class="pre">get_player_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.get_player_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the id of the player</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.gong">
+<span class="sig-name descname"><span class="pre">gong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.gong" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform Gong
+:param dealer: Dealer
+:type dealer: object
+:param Cards: The cards to be Gong.
+:type Cards: object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.play_card">
+<span class="sig-name descname"><span class="pre">play_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.play_card" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play one card
+:param dealer: Dealer
+:type dealer: object
+:param Card: The card to be play.
+:type Card: object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.pong">
+<span class="sig-name descname"><span class="pre">pong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.pong" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform Pong
+:param dealer: Dealer
+:type dealer: object
+:param Cards: The cards to be Pong.
+:type Cards: object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.print_hand">
+<span class="sig-name descname"><span class="pre">print_hand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.print_hand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the cards in hand in string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.player.MahjongPlayer.print_pile">
+<span class="sig-name descname"><span class="pre">print_pile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.player.MahjongPlayer.print_pile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the cards in pile of the player in string.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.mahjong.round">
+<span id="rlcard-games-mahjong-round"></span><h2>rlcard.games.mahjong.round<a class="headerlink" href="#module-rlcard.games.mahjong.round" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.round.MahjongRound">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.round.</span></span><span class="sig-name descname"><span class="pre">MahjongRound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">judger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dealer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_random</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.round.MahjongRound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.round.MahjongRound.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.round.MahjongRound.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get player’s state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>players</strong> (<em>list</em>) – The list of MahjongPlayer</p></li>
+<li><p><strong>player_id</strong> (<em>int</em>) – The id of the player</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The information of the state</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.round.MahjongRound.proceed_round">
+<span class="sig-name descname"><span class="pre">proceed_round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.round.MahjongRound.proceed_round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call other Classes’s functions to keep one round running</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> (<em>object</em>) – object of UnoPlayer</p></li>
+<li><p><strong>action</strong> (<em>str</em>) – string of legal action</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.mahjong.card">
+<span id="rlcard-games-mahjong-card"></span><h2>rlcard.games.mahjong.card<a class="headerlink" href="#module-rlcard.games.mahjong.card" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.card.MahjongCard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.card.</span></span><span class="sig-name descname"><span class="pre">MahjongCard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trait</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.card.MahjongCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.card.MahjongCard.get_str">
+<span class="sig-name descname"><span class="pre">get_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.card.MahjongCard.get_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the string representation of card</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string of card’s color and trait</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.card.MahjongCard.info">
+<span class="sig-name descname"><span class="pre">info</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'trait':</span> <span class="pre">['1',</span> <span class="pre">'2',</span> <span class="pre">'3',</span> <span class="pre">'4',</span> <span class="pre">'5',</span> <span class="pre">'6',</span> <span class="pre">'7',</span> <span class="pre">'8',</span> <span class="pre">'9',</span> <span class="pre">'green',</span> <span class="pre">'red',</span> <span class="pre">'white',</span> <span class="pre">'east',</span> <span class="pre">'west',</span> <span class="pre">'north',</span> <span class="pre">'south'],</span> <span class="pre">'type':</span> <span class="pre">['dots',</span> <span class="pre">'bamboo',</span> <span class="pre">'characters',</span> <span class="pre">'dragons',</span> <span class="pre">'winds']}</span></em><a class="headerlink" href="#rlcard.games.mahjong.card.MahjongCard.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.card.MahjongCard.set_index_num">
+<span class="sig-name descname"><span class="pre">set_index_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.card.MahjongCard.set_index_num" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rlcard.games.mahjong.utils">
+<span id="rlcard-games-mahjong-utils"></span><h2>rlcard.games.mahjong.utils<a class="headerlink" href="#module-rlcard.games.mahjong.utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.utils.cards2list">
+<span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.utils.</span></span><span class="sig-name descname"><span class="pre">cards2list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.utils.cards2list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.utils.encode_cards">
+<span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.utils.</span></span><span class="sig-name descname"><span class="pre">encode_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.utils.encode_cards" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.utils.init_deck">
+<span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.utils.</span></span><span class="sig-name descname"><span class="pre">init_deck</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.utils.init_deck" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rlcard.games.mahjong.utils.pile2list">
+<span class="sig-prename descclassname"><span class="pre">rlcard.games.mahjong.utils.</span></span><span class="sig-name descname"><span class="pre">pile2list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rlcard.games.mahjong.utils.pile2list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rlcard.games.uno.html" class="btn btn-neutral float-left" title="rlcard.games.uno" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rlcard.games.gin_rummy.html" class="btn btn-neutral float-right" title="rlcard.games.gin_rummy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright DATA Lab at Texas A&amp;M University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
